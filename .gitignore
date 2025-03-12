@@ -1,0 +1,10 @@
+# Ignore files for DDEV and non-theme based stuff
+
+.editorconfig
+.gitattributes
+.ddev/
+/vendor/
+/web/core/
+/web/sites/
+# Ignore PHPStorm Project files
+.idea
