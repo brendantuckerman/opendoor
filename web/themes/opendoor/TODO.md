@@ -14,17 +14,19 @@ For mobile-- touchscreen elements should be larger. Forms should have as little 
 
 TODO:
 
-- install theme 
-- Readme.txt
-- Replace Oliver with opendooor
-- Create pairs of accessible colours
-- Settings. 
-- Header
-- Footer
-- Standard page
-- Standard page all sections
-- work through all sections of Dev a11y training 
-- Menus
+- install theme ☑
+- Add detail to the TODO list here ☐
+- Readme.txt ☐
+- Replace Oliver with opendooor ☐
+- Create pairs of accessible colours ☐
+- Settings. ☐
+- Header ☐
+- Footer ☐
+- Standard page ☐
+- Standard page all sections ☐
+- work through all sections of Dev a11y training ☐
+- Menus ☐
+- Form and form elements ☐
 
 * Mobile *
 - Ensure navigation via VoiceOver / TalkBack friendly

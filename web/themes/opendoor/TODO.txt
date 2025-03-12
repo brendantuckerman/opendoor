@@ -1,0 +1,18 @@
+This file is intended to be removed after action.
+
+General principles:
+
+- Accessible and open to everyone
+Remember this includes ALL people. So should be clean, keyboard
+friendly etc etc. Use WCAG and  Dev intro. Work though each 
+section to make sure you are using it. 
+
+- Lightweight in size and technical knowledge needed to use.
+- Flexible within the requirements above.
+
+TODO:
+
+- Provide default colour schemes that ensure AAA
+- Remove example from theme-setting.php
+- Create 4 x accessible colour themes (Primary / Secondary)
+- Standard page all sections

@@ -182,7 +182,7 @@
 }
 
 /*
- * Olivero doesn't officially support nested tertiary submenus, but this
+ * opendoor doesn't officially support nested tertiary submenus, but this
  * ensures that it doesn't break all the way.
  *
  * @see https://www.drupal.org/project/drupal/issues/3221399

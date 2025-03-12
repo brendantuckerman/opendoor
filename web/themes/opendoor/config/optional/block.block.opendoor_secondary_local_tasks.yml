@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - olivero
-id: olivero_secondary_local_tasks
-theme: olivero
+    - opendoor
+id: opendoor_secondary_local_tasks
+theme: opendoor
 region: highlighted
 weight: -2
 provider: null

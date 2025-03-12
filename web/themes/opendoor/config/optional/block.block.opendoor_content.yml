@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - olivero
-id: olivero_content
-theme: olivero
+    - opendoor
+id: opendoor_content
+theme: opendoor
 region: content
 weight: 0
 provider: null

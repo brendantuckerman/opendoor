@@ -2,7 +2,7 @@ name: OpenDoor
 type: theme
 core_version_requirement: '>=11.1.2'
 base theme: false
-description: An accessibility first front-end theme built from Olivero.
+description: An accessibility first front-end theme built from opendoor.
 alt text: Screenshot of OpenDoor, Drupal front-end theme.
 package: Custom
 version: 1.0.0

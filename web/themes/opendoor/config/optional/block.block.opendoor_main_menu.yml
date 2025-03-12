@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - olivero
-id: olivero_main_menu
-theme: olivero
+    - opendoor
+id: opendoor_main_menu
+theme: opendoor
 region: primary_menu
 weight: 0
 provider: null

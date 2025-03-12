@@ -4,9 +4,9 @@ dependencies:
   module:
     - node
   theme:
-    - olivero
-id: olivero_syndicate
-theme: olivero
+    - opendoor
+id: opendoor_syndicate
+theme: opendoor
 region: social
 weight: 0
 provider: null

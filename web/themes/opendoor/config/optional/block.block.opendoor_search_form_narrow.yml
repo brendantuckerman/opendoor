@@ -4,9 +4,9 @@ dependencies:
   module:
     - search
   theme:
-    - olivero
-id: olivero_search_form_narrow
-theme: olivero
+    - opendoor
+id: opendoor_search_form_narrow
+theme: opendoor
 region: primary_menu
 weight: -4
 provider: null
