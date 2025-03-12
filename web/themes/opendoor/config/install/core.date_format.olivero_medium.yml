@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    theme:
+      - opendoor
+id: opendoor_medium
+label: 'Opendoor Medium'
+locked: false
+pattern: 'j F Y'
