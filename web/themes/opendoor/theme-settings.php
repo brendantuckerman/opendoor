@@ -19,33 +19,33 @@ function opendoor_form_system_theme_settings_alter(&$form, FormStateInterface $f
     ],
     'schemes' => [
       'default' => [
-        'label' => 'Blue Lagoon',
+        'label' => 'Ice blue',
         'colors' => [
-          'base_primary_color' => '#1b9ae4',
+          'base_primary_color' => '#acecf7',
         ],
       ],
-      'house' => [
-        'label' => 'house',
+      'mint' => [
+        'label' => 'Mint Green',
         'colors' => [
-          'base_primary_color' => '#a30f0f',
+          'base_primary_color' => '#d6f6dd',
         ],
       ],
-      'ice' => [
-        'label' => 'Ice',
+      'purple' => [
+        'label' => 'Bubblegum Purple',
         'colors' => [
-          'base_primary_color' => '#57919e',
+          'base_primary_color' => '#DAC4f7',
         ],
       ],
-      'plum' => [
-        'label' => 'Plum',
+      'red' => [
+        'label' => 'Red Soda',
         'colors' => [
-          'base_primary_color' => '#7a4587',
+          'base_primary_color' => '#f4989c',
         ],
       ],
-      'slate' => [
-        'label' => 'Slate',
+      'orange' => [
+        'label' => 'Crayon Orange',
         'colors' => [
-          'base_primary_color' => '#47625b',
+          'base_primary_color' => '#FF7538',
         ],
       ],
     ],
@@ -88,11 +88,11 @@ function opendoor_form_system_theme_settings_alter(&$form, FormStateInterface $f
     '#empty_option' => t('Custom'),
     '#empty_value' => '',
     '#options' => [
-      'default' => t('Blue Lagoon (Default)'),
-      'house' => t('house'),
-      'ice' => t('Ice'),
-      'plum' => t('Plum'),
-      'slate' => t('Slate'),
+      'default' => t('Ice Blue (Default)'),
+      'mint' => t('Mint Green'),
+      'purple' => t('Bubblegum Purple'),
+      'red' => t('Red Soda'),
+      'orange' => t('Orange Crayon'),
     ],
     '#input' => FALSE,
     '#wrapper_attributes' => [
