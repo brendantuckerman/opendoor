@@ -4,8 +4,14 @@
 .gitattributes
 .ddev/
 /vendor/
+/web/core/*
 /web/core/
+/web/sites/*
 /web/sites/
+/web/modules/
+/web/modules/*
+/web/profiles/
+/web/profiles/*
 # Ignore PHPStorm Project files
 .idea
 /vendor/
