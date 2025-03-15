@@ -1,9 +1,9 @@
 # This file sould be removed before deployment *
 # There is a lot of material that can be folded into readme
 
-#### OpenDoor Theme for Drupal ####
+#### OpenDoor Theme for Drupal 
 
-### Aims ###
+### Aims 
 
 There are 4 aims of OpenDoor Theme, in order of importance:
 
@@ -27,19 +27,37 @@ Should be mobile first. Will need to review mobile &
 
 All decisions made in the design and build of these theme should ask whether each of these are met. Anything that is not accessible should be left behind.
 
-### Why Accessibility? ###
+### Why Accessibility? 
 
 
 
 From an economic perspectve, $1 spent on accessibility brings back $100. People with a disability spend $1 trillion annually, and people who are friends / family of those with a disability prefer to spend aat organisations that are accessible. Overall, this brings the total to $8 trillion annually (Forrester, 2022).
 
 
+## Building a design system
+
+See Brad Frosts's work on a global design system for something radically obvious: https://bradfrost.com/blog/post/a-global-design-system/ , as well as his summary of 'Atomic Design'  : https://bradfrost.com/blog/post/atomic-web-design/
+
+Also see his open-source PatternLab for designing UI components https://patternlab.io/ . This includes a Twig Templating engine OMG 
+
+This theme intends to provide molecules to enable users to create the ogranisms and above in Drupal.
+
+Inspiration was drawn from the A11y Theme Builder project (GitHub https://github.com/finos/a11y-theme-builder/tree/main | Demo: https://a11y-theme-builder.finos.org/), an incredible opensource project that aimed at enabling accessibility in the design->build process.You can see the A11y builder disuvussed here: https://a11ytalks.com/posts/2024-dec
+
+What the A11y theme builder did was to take a corporate colour and then create 10 shades of it accompanied by an 'On colour' that meets WCAG 4.5:1 (required for small fonts)
 
 
-##
+
+## TODO List ##
 
 TODO:
-
+- Light mode and drak mode needs to be checked.Elevation for light mode differs from dark mode
+- In dark mode, images should be darkened to make them more acessible
+- "Modes-> light / dark / colour blind / ADHD / Dyslexia"
+- "Once colour gets added, that;s when a lot of systems fall apart"
+- Alert and other colours could be pre-fab to ensure AAA
+- Aim for AAA
+- In the modes below, aim to iclude features (like accomodating cognitive difficulties by defaulT), RATHER THAN HAVE A MODE SWTICH. Mode swithc shuould only be ofr cases where two things cannot cooexist or are contradicotry (color, for example). 
 - install theme ☑
  * File name changes ☑
  * Files changed to remove Olivero references ☑
@@ -53,10 +71,17 @@ TODO:
 - Create pairs of accessible colours ☐
 - Delete TODO.txt ☑
 - Remove example from theme-setting.php ☐
+- All hotlinks should be underlined (this isn't actaully required, but why not?)
+- Button focus should ve the same colour as button, just with a border / outline included
+- Buttons: default, hover, focus, active, disabled
+- 404 
 
 - Accessibility
 
    1. Colour Blindness
+
+   In Open A11y, clour blind mode does not change the default branding colour, but instead chnages the colours of infogrphics etc.
+
    * in order for Colour blindess mode to function, default colours will need to be set. Where these colours are used, they can be replaced with the versions below in the CB modes section below.
    green:
    purple:
@@ -104,7 +129,11 @@ TODO:
    orange: #dfd4c6
    blue: #c5e2e7
 
-2. Dislexia
+2. Dislexia 
+
+- improved line height
+- dislexic firnedly fonts
+- Mode avaliable for ADHD/ Dislexia
 
 
 3. Vision impairmnet
@@ -113,7 +142,23 @@ TODO:
 4. Hearing impairment
 
 
-5. Cogniitive impairment
+5. Cognitive impairment / physical disability
+
+ - Target components like buttons and switches should be wrapped in a target area that is an appropriate size. They use
+ a target area of:
+
+  48 px android
+  44 px ios
+  32 px desktop
+  Dyslexic mode would be higher
+
+6. ADHD 
+
+7. Motion sensitivity
+
+- reduce animation / movement
+ 
+ - Improved whitespace
 
 - Header ☐
 - Footer ☐
