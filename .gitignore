@@ -26,3 +26,5 @@
 
 # Ignore multi-site test environment.
 /web/sites/simpletest
+
+node_modules
