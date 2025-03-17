@@ -1,0 +1,31 @@
+/**
+ * @file
+ * Secondary menu region layout styling.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.region--secondary-menu {
+  display: flex;
+  margin-block-start: var(--sp2);
+  margin-block-end: var(--sp2);
+
+  & > * {
+    margin-block-end: 0;
+  }
+}
+
+body:not(.is-always-mobile-nav) {
+  @media (--nav) {
+    & .region--secondary-menu {
+      justify-content: flex-end;
+      margin: 0;
+
+      /* If the secondary nav is the first item within the header, it does not need left separator. */
+      &:first-child .secondary-nav::before {
+        content: none;
+      }
+    }
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxheW91dC9yZWdpb24tc2Vjb25kYXJ5LW1lbnUucGNzcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoicmVnaW9uLXNlY29uZGFyeS1tZW51LnBjc3MuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAZmlsZVxuICogU2Vjb25kYXJ5IG1lbnUgcmVnaW9uIGxheW91dCBzdHlsaW5nLlxuICovXG5cbkBpbXBvcnQgXCIuLi9iYXNlL21lZGlhLXF1ZXJpZXMucGNzcy5jc3NcIjtcblxuLnJlZ2lvbi0tc2Vjb25kYXJ5LW1lbnUge1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW4tYmxvY2stc3RhcnQ6IHZhcigtLXNwMik7XG4gIG1hcmdpbi1ibG9jay1lbmQ6IHZhcigtLXNwMik7XG5cbiAgJiA+ICoge1xuICAgIG1hcmdpbi1ibG9jay1lbmQ6IDA7XG4gIH1cbn1cblxuYm9keTpub3QoLmlzLWFsd2F5cy1tb2JpbGUtbmF2KSB7XG4gIEBtZWRpYSAoLS1uYXYpIHtcbiAgICAmIC5yZWdpb24tLXNlY29uZGFyeS1tZW51IHtcbiAgICAgIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7XG4gICAgICBtYXJnaW46IDA7XG5cbiAgICAgIC8qIElmIHRoZSBzZWNvbmRhcnkgbmF2IGlzIHRoZSBmaXJzdCBpdGVtIHdpdGhpbiB0aGUgaGVhZGVyLCBpdCBkb2VzIG5vdCBuZWVkIGxlZnQgc2VwYXJhdG9yLiAqL1xuICAgICAgJjpmaXJzdC1jaGlsZCAuc2Vjb25kYXJ5LW5hdjo6YmVmb3JlIHtcbiAgICAgICAgY29udGVudDogbm9uZTtcbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiJdfQ== */

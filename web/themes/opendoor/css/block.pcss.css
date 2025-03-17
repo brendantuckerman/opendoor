@@ -1,0 +1,19 @@
+/**
+ * @file
+ * Block styling.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.block__title {
+  margin-block: 0 var(--sp);
+  letter-spacing: 0.02em;
+  color: var(--color-text-neutral-soft);
+  font-size: var(--font-size-s);
+  line-height: var(--sp);
+}
+
+.site-footer .block__title {
+  color: var(--color--gray-65);
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvYmxvY2sucGNzcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoiYmxvY2sucGNzcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBmaWxlXG4gKiBCbG9jayBzdHlsaW5nLlxuICovXG5cbkBpbXBvcnQgXCIuLi9iYXNlL21lZGlhLXF1ZXJpZXMucGNzcy5jc3NcIjtcblxuLmJsb2NrX190aXRsZSB7XG4gIG1hcmdpbi1ibG9jazogMCB2YXIoLS1zcCk7XG4gIGxldHRlci1zcGFjaW5nOiAwLjAyZW07XG4gIGNvbG9yOiB2YXIoLS1jb2xvci10ZXh0LW5ldXRyYWwtc29mdCk7XG4gIGZvbnQtc2l6ZTogdmFyKC0tZm9udC1zaXplLXMpO1xuICBsaW5lLWhlaWdodDogdmFyKC0tc3ApO1xufVxuXG4uc2l0ZS1mb290ZXIgLmJsb2NrX190aXRsZSB7XG4gIGNvbG9yOiB2YXIoLS1jb2xvci0tZ3JheS02NSk7XG59XG4iXX0= */

@@ -1,0 +1,28 @@
+/**
+ * @file
+ * Styles for action links.
+*/
+@import "../base/media-queries.pcss.css";
+
+.action-links {
+  margin-block: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-block: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  list-style: none;
+
+  & li {
+    display: inline-block;
+
+    & a {
+      color: var(--color-text-primary-medium);
+    }
+  }
+}
+
+.action-links-item {
+  display: inline-block;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvYWN0aW9uLWxpbmtzLnBjc3MuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6ImFjdGlvbi1saW5rcy5wY3NzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGZpbGVcbiAqIFN0eWxlcyBmb3IgYWN0aW9uIGxpbmtzLlxuKi9cbkBpbXBvcnQgXCIuLi9iYXNlL21lZGlhLXF1ZXJpZXMucGNzcy5jc3NcIjtcblxuLmFjdGlvbi1saW5rcyB7XG4gIG1hcmdpbi1ibG9jazogMDtcbiAgbWFyZ2luLWlubGluZS1zdGFydDogMDtcbiAgbWFyZ2luLWlubGluZS1lbmQ6IDA7XG4gIHBhZGRpbmctYmxvY2s6IDA7XG4gIHBhZGRpbmctaW5saW5lLXN0YXJ0OiAwO1xuICBwYWRkaW5nLWlubGluZS1lbmQ6IDA7XG4gIGxpc3Qtc3R5bGU6IG5vbmU7XG5cbiAgJiBsaSB7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuXG4gICAgJiBhIHtcbiAgICAgIGNvbG9yOiB2YXIoLS1jb2xvci10ZXh0LXByaW1hcnktbWVkaXVtKTtcbiAgICB9XG4gIH1cbn1cblxuLmFjdGlvbi1saW5rcy1pdGVtIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufVxuIl19 */

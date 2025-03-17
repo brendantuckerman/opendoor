@@ -1,0 +1,45 @@
+/**
+ * @file
+ * Grid system definition for the footer top and footer bottom layouts.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+/**
+ * Creates stacking context ensuring that child elements can never appear in
+ * front of mobile navigation.
+ */
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.site-footer__inner {
+  padding-block: var(--sp2);
+
+  @media (--nav) {
+    padding-block: var(--sp4) var(--sp13);
+  }
+}
+
+.region--footer_top__inner,
+.region--footer_bottom__inner {
+  & > * {
+    margin-block-end: var(--sp2);
+
+    @media (--md) {
+      flex: 1;
+      margin-block-end: 0;
+
+      &:not(:last-child) {
+        margin-inline-end: var(--sp2);
+      }
+    }
+  }
+
+  @media (--md) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxheW91dC9sYXlvdXQtZm9vdGVyLnBjc3MuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6ImxheW91dC1mb290ZXIucGNzcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBmaWxlXG4gKiBHcmlkIHN5c3RlbSBkZWZpbml0aW9uIGZvciB0aGUgZm9vdGVyIHRvcCBhbmQgZm9vdGVyIGJvdHRvbSBsYXlvdXRzLlxuICovXG5cbkBpbXBvcnQgXCIuLi9iYXNlL21lZGlhLXF1ZXJpZXMucGNzcy5jc3NcIjtcblxuLyoqXG4gKiBDcmVhdGVzIHN0YWNraW5nIGNvbnRleHQgZW5zdXJpbmcgdGhhdCBjaGlsZCBlbGVtZW50cyBjYW4gbmV2ZXIgYXBwZWFyIGluXG4gKiBmcm9udCBvZiBtb2JpbGUgbmF2aWdhdGlvbi5cbiAqL1xuLnNpdGUtZm9vdGVyIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB6LWluZGV4OiAxO1xufVxuXG4uc2l0ZS1mb290ZXJfX2lubmVyIHtcbiAgcGFkZGluZy1ibG9jazogdmFyKC0tc3AyKTtcblxuICBAbWVkaWEgKC0tbmF2KSB7XG4gICAgcGFkZGluZy1ibG9jazogdmFyKC0tc3A0KSB2YXIoLS1zcDEzKTtcbiAgfVxufVxuXG4ucmVnaW9uLS1mb290ZXJfdG9wX19pbm5lcixcbi5yZWdpb24tLWZvb3Rlcl9ib3R0b21fX2lubmVyIHtcbiAgJiA+ICoge1xuICAgIG1hcmdpbi1ibG9jay1lbmQ6IHZhcigtLXNwMik7XG5cbiAgICBAbWVkaWEgKC0tbWQpIHtcbiAgICAgIGZsZXg6IDE7XG4gICAgICBtYXJnaW4tYmxvY2stZW5kOiAwO1xuXG4gICAgICAmOm5vdCg6bGFzdC1jaGlsZCkge1xuICAgICAgICBtYXJnaW4taW5saW5lLWVuZDogdmFyKC0tc3AyKTtcbiAgICAgIH1cbiAgICB9XG4gIH1cblxuICBAbWVkaWEgKC0tbWQpIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtd3JhcDogd3JhcDtcbiAgfVxufVxuIl19 */

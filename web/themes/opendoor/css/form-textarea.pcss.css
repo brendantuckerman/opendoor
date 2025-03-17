@@ -1,0 +1,14 @@
+/**
+ * @file
+ * Textarea.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: var(--sp8);
+  padding: var(--sp);
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvZm9ybS10ZXh0YXJlYS5wY3NzLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJmb3JtLXRleHRhcmVhLnBjc3MuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAZmlsZVxuICogVGV4dGFyZWEuXG4gKi9cblxuQGltcG9ydCBcIi4uL2Jhc2UvbWVkaWEtcXVlcmllcy5wY3NzLmNzc1wiO1xuXG50ZXh0YXJlYSB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICB3aWR0aDogMTAwJTtcbiAgbWluLWhlaWdodDogdmFyKC0tc3A4KTtcbiAgcGFkZGluZzogdmFyKC0tc3ApO1xufVxuIl19 */

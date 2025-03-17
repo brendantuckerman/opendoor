@@ -1,0 +1,19 @@
+/*
+ * @file
+ * Provides default layout styles for all layout sections.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.layout {
+  margin-block-end: var(--sp);
+
+  @media (--md) {
+    margin-block-end: var(--sp2);
+  }
+
+  @media (--lg) {
+    margin-block-end: var(--sp3);
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxheW91dC9sYXlvdXQtZGlzY292ZXJ5LXNlY3Rpb24tbGF5b3V0LnBjc3MuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6ImxheW91dC1kaXNjb3Zlcnktc2VjdGlvbi1sYXlvdXQucGNzcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuICogQGZpbGVcbiAqIFByb3ZpZGVzIGRlZmF1bHQgbGF5b3V0IHN0eWxlcyBmb3IgYWxsIGxheW91dCBzZWN0aW9ucy5cbiAqL1xuXG5AaW1wb3J0IFwiLi4vYmFzZS9tZWRpYS1xdWVyaWVzLnBjc3MuY3NzXCI7XG5cbi5sYXlvdXQge1xuICBtYXJnaW4tYmxvY2stZW5kOiB2YXIoLS1zcCk7XG5cbiAgQG1lZGlhICgtLW1kKSB7XG4gICAgbWFyZ2luLWJsb2NrLWVuZDogdmFyKC0tc3AyKTtcbiAgfVxuXG4gIEBtZWRpYSAoLS1sZykge1xuICAgIG1hcmdpbi1ibG9jay1lbmQ6IHZhcigtLXNwMyk7XG4gIH1cbn1cbiJdfQ== */

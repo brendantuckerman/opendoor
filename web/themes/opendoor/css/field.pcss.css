@@ -1,0 +1,42 @@
+/**
+ * @file
+ * Visual styles for fields.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.field:not(:last-child) {
+  margin-block-end: var(--sp2);
+}
+
+.field__label {
+  font-weight: bold;
+}
+
+.field--label-inline .field__label,
+.field--label-inline .field__items {
+  float: left; /* LTR */
+
+  /**
+   * Chromium and Webkit do not yet support flow relative logical properties,
+   * such as float: inline-end. However, PostCSS Logical does not compile this
+   * value, so we accommodate by not using these.
+   *
+   * @see https://caniuse.com/mdn-css_properties_clear_flow_relative_values
+   * @see https://github.com/csstools/postcss-plugins/issues/632
+   */
+  &:dir(rtl) {
+    float: right;
+  }
+}
+
+.field--label-inline .field__label,
+.field--label-inline > .field__item,
+.field--label-inline .field__items {
+  padding-inline-end: 0.5em;
+}
+
+.field--label-inline .field__label::after {
+  content: ":";
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvZmllbGQucGNzcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoiZmllbGQucGNzcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBmaWxlXG4gKiBWaXN1YWwgc3R5bGVzIGZvciBmaWVsZHMuXG4gKi9cblxuQGltcG9ydCBcIi4uL2Jhc2UvbWVkaWEtcXVlcmllcy5wY3NzLmNzc1wiO1xuXG4uZmllbGQ6bm90KDpsYXN0LWNoaWxkKSB7XG4gIG1hcmdpbi1ibG9jay1lbmQ6IHZhcigtLXNwMik7XG59XG5cbi5maWVsZF9fbGFiZWwge1xuICBmb250LXdlaWdodDogYm9sZDtcbn1cblxuLmZpZWxkLS1sYWJlbC1pbmxpbmUgLmZpZWxkX19sYWJlbCxcbi5maWVsZC0tbGFiZWwtaW5saW5lIC5maWVsZF9faXRlbXMge1xuICBmbG9hdDogbGVmdDsgLyogTFRSICovXG5cbiAgLyoqXG4gICAqIENocm9taXVtIGFuZCBXZWJraXQgZG8gbm90IHlldCBzdXBwb3J0IGZsb3cgcmVsYXRpdmUgbG9naWNhbCBwcm9wZXJ0aWVzLFxuICAgKiBzdWNoIGFzIGZsb2F0OiBpbmxpbmUtZW5kLiBIb3dldmVyLCBQb3N0Q1NTIExvZ2ljYWwgZG9lcyBub3QgY29tcGlsZSB0aGlzXG4gICAqIHZhbHVlLCBzbyB3ZSBhY2NvbW1vZGF0ZSBieSBub3QgdXNpbmcgdGhlc2UuXG4gICAqXG4gICAqIEBzZWUgaHR0cHM6Ly9jYW5pdXNlLmNvbS9tZG4tY3NzX3Byb3BlcnRpZXNfY2xlYXJfZmxvd19yZWxhdGl2ZV92YWx1ZXNcbiAgICogQHNlZSBodHRwczovL2dpdGh1Yi5jb20vY3NzdG9vbHMvcG9zdGNzcy1wbHVnaW5zL2lzc3Vlcy82MzJcbiAgICovXG4gICY6ZGlyKHJ0bCkge1xuICAgIGZsb2F0OiByaWdodDtcbiAgfVxufVxuXG4uZmllbGQtLWxhYmVsLWlubGluZSAuZmllbGRfX2xhYmVsLFxuLmZpZWxkLS1sYWJlbC1pbmxpbmUgPiAuZmllbGRfX2l0ZW0sXG4uZmllbGQtLWxhYmVsLWlubGluZSAuZmllbGRfX2l0ZW1zIHtcbiAgcGFkZGluZy1pbmxpbmUtZW5kOiAwLjVlbTtcbn1cblxuLmZpZWxkLS1sYWJlbC1pbmxpbmUgLmZpZWxkX19sYWJlbDo6YWZ0ZXIge1xuICBjb250ZW50OiBcIjpcIjtcbn1cbiJdfQ== */

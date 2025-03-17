@@ -1,0 +1,103 @@
+/**
+ * @file
+ * Nav Button Mobile.
+ */
+
+@import "../../base/media-queries.pcss.css";
+
+.mobile-nav-button {
+  position: relative;
+  z-index: 505; /* Appear above mobile nav. */
+  display: flex;
+  align-items: center;
+  align-self: center;
+  width: var(--sp2);
+  height: var(--sp2);
+  margin-inline-start: auto;
+  margin-inline-end: -6px;
+  padding-block: 0;
+  padding-inline-start: 6px;
+  padding-inline-end: 6px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  appearance: none;
+
+  &:focus {
+    outline: solid 2px var(--color--primary-40);
+  }
+
+  &:active {
+    color: inherit; /* Override Safari's default UA styles. */
+  }
+
+  @media (--sm) {
+    display: inline-flex;
+    width: auto;
+    padding-inline-start: var(--sp);
+  }
+}
+
+/* Text that says "menu". */
+.mobile-nav-button__label {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+
+  @media (--sm) {
+    position: static;
+    overflow: visible;
+    clip: auto;
+    width: auto;
+    height: auto;
+    margin-inline-end: 12px;
+    letter-spacing: 0.05em;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+.mobile-nav-button__icon {
+  position: relative;
+  display: block;
+  width: var(--sp2);
+  height: 0;
+  border-top: solid 3px var(--color--primary-50);
+
+  &::before,
+  &::after {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    width: 100%;
+    height: 0;
+    content: "";
+    transition: transform 0.2s;
+    border-top: solid 3px var(--color--primary-50);
+  }
+
+  &::before {
+    transform: translateY(-11px);
+  }
+
+  &::after {
+    transform: translateY(5px);
+  }
+}
+
+.mobile-nav-button[aria-expanded="true"] .mobile-nav-button__icon {
+  border-top-color: transparent;
+
+  &::before {
+    transform: translateY(-3px) rotate(-45deg);
+  }
+
+  &::after {
+    transform: translateY(-3px) rotate(45deg);
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvbmF2aWdhdGlvbi9uYXYtYnV0dG9uLW1vYmlsZS5wY3NzLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJuYXYtYnV0dG9uLW1vYmlsZS5wY3NzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGZpbGVcbiAqIE5hdiBCdXR0b24gTW9iaWxlLlxuICovXG5cbkBpbXBvcnQgXCIuLi8uLi9iYXNlL21lZGlhLXF1ZXJpZXMucGNzcy5jc3NcIjtcblxuLm1vYmlsZS1uYXYtYnV0dG9uIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB6LWluZGV4OiA1MDU7IC8qIEFwcGVhciBhYm92ZSBtb2JpbGUgbmF2LiAqL1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBhbGlnbi1zZWxmOiBjZW50ZXI7XG4gIHdpZHRoOiB2YXIoLS1zcDIpO1xuICBoZWlnaHQ6IHZhcigtLXNwMik7XG4gIG1hcmdpbi1pbmxpbmUtc3RhcnQ6IGF1dG87XG4gIG1hcmdpbi1pbmxpbmUtZW5kOiAtNnB4O1xuICBwYWRkaW5nLWJsb2NrOiAwO1xuICBwYWRkaW5nLWlubGluZS1zdGFydDogNnB4O1xuICBwYWRkaW5nLWlubGluZS1lbmQ6IDZweDtcbiAgY3Vyc29yOiBwb2ludGVyO1xuICBib3JkZXI6IG5vbmU7XG4gIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xuICBhcHBlYXJhbmNlOiBub25lO1xuXG4gICY6Zm9jdXMge1xuICAgIG91dGxpbmU6IHNvbGlkIDJweCB2YXIoLS1jb2xvci0tcHJpbWFyeS00MCk7XG4gIH1cblxuICAmOmFjdGl2ZSB7XG4gICAgY29sb3I6IGluaGVyaXQ7IC8qIE92ZXJyaWRlIFNhZmFyaSdzIGRlZmF1bHQgVUEgc3R5bGVzLiAqL1xuICB9XG5cbiAgQG1lZGlhICgtLXNtKSB7XG4gICAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gICAgd2lkdGg6IGF1dG87XG4gICAgcGFkZGluZy1pbmxpbmUtc3RhcnQ6IHZhcigtLXNwKTtcbiAgfVxufVxuXG4vKiBUZXh0IHRoYXQgc2F5cyBcIm1lbnVcIi4gKi9cbi5tb2JpbGUtbmF2LWJ1dHRvbl9fbGFiZWwge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBjbGlwOiByZWN0KDFweCwgMXB4LCAxcHgsIDFweCk7XG4gIHdpZHRoOiAxcHg7XG4gIGhlaWdodDogMXB4O1xuICB3b3JkLXdyYXA6IG5vcm1hbDtcblxuICBAbWVkaWEgKC0tc20pIHtcbiAgICBwb3NpdGlvbjogc3RhdGljO1xuICAgIG92ZXJmbG93OiB2aXNpYmxlO1xuICAgIGNsaXA6IGF1dG87XG4gICAgd2lkdGg6IGF1dG87XG4gICAgaGVpZ2h0OiBhdXRvO1xuICAgIG1hcmdpbi1pbmxpbmUtZW5kOiAxMnB4O1xuICAgIGxldHRlci1zcGFjaW5nOiAwLjA1ZW07XG4gICAgZm9udC1zaXplOiAxNHB4O1xuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIH1cbn1cblxuLm1vYmlsZS1uYXYtYnV0dG9uX19pY29uIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2lkdGg6IHZhcigtLXNwMik7XG4gIGhlaWdodDogMDtcbiAgYm9yZGVyLXRvcDogc29saWQgM3B4IHZhcigtLWNvbG9yLS1wcmltYXJ5LTUwKTtcblxuICAmOjpiZWZvcmUsXG4gICY6OmFmdGVyIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgaW5zZXQtYmxvY2stc3RhcnQ6IDA7XG4gICAgaW5zZXQtaW5saW5lLXN0YXJ0OiAwO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogMDtcbiAgICBjb250ZW50OiBcIlwiO1xuICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjJzO1xuICAgIGJvcmRlci10b3A6IHNvbGlkIDNweCB2YXIoLS1jb2xvci0tcHJpbWFyeS01MCk7XG4gIH1cblxuICAmOjpiZWZvcmUge1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgtMTFweCk7XG4gIH1cblxuICAmOjphZnRlciB7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDVweCk7XG4gIH1cbn1cblxuLm1vYmlsZS1uYXYtYnV0dG9uW2FyaWEtZXhwYW5kZWQ9XCJ0cnVlXCJdIC5tb2JpbGUtbmF2LWJ1dHRvbl9faWNvbiB7XG4gIGJvcmRlci10b3AtY29sb3I6IHRyYW5zcGFyZW50O1xuXG4gICY6OmJlZm9yZSB7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC0zcHgpIHJvdGF0ZSgtNDVkZWcpO1xuICB9XG5cbiAgJjo6YWZ0ZXIge1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgtM3B4KSByb3RhdGUoNDVkZWcpO1xuICB9XG59XG4iXX0= */

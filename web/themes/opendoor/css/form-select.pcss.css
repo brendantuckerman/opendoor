@@ -1,0 +1,85 @@
+/**
+ * @file
+ * Select input elements.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+:root {
+  --form-element-select-icon: url("../../images/chevron-down.svg");
+}
+
+select {
+  max-width: 100%;
+  height: var(--sp3);
+  padding-block: 0;
+  padding-inline-start: var(--sp);
+  padding-inline-end: var(--sp3);
+  color: var(--color-text-neutral-loud);
+  border: 1px solid var(--color--gray-60);
+  border-radius: var(--border-radius);
+  background-color: var(--color--white);
+  background-image: var(--form-element-select-icon);
+  background-repeat: no-repeat;
+  background-position: right var(--sp) center; /* LTR */
+  font-family: inherit;
+  font-size: inherit;
+  appearance: none;
+
+  &:focus {
+    border: solid 2px var(--color--primary-50);
+    outline: solid 2px var(--color--primary-50);
+
+    @supports (outline-style: double) {
+      border-width: 1px;
+      outline-width: 6px;
+      outline-style: double;
+      outline-offset: -1px;
+    }
+  }
+
+  &[disabled] {
+    color: var(--color--gray-60);
+    background-color: var(--color--gray-100);
+  }
+
+  &.error {
+    border: solid 2px var(--color--red);
+
+    &:focus {
+      outline-color: var(--color--red);
+    }
+  }
+
+  &[multiple] {
+    height: auto;
+    padding: var(--sp0-5);
+    background-image: none;
+    line-height: 1; /* Needed by non-Chromium based MS Edge browsers. */
+
+    & option {
+      padding: var(--sp0-5);
+    }
+  }
+
+  &.form-element--small {
+    height: var(--sp2-5);
+  }
+
+  /* Necessary to show chevron in forced colors mode in modern browsers. */
+  @media (forced-colors: active) {
+    padding-inline-end: var(--sp);
+    background-image: none;
+    appearance: listbox; /* Default <select> appearance value for modern browsers. */
+
+    /* Lets browser set <select> appearance to whatever the browser's default is. */
+    @supports (appearance: revert) {
+      appearance: revert;
+    }
+  }
+}
+
+[dir="rtl"] select {
+  background-position: left var(--sp) center;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvZm9ybS1zZWxlY3QucGNzcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoiZm9ybS1zZWxlY3QucGNzcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBmaWxlXG4gKiBTZWxlY3QgaW5wdXQgZWxlbWVudHMuXG4gKi9cblxuQGltcG9ydCBcIi4uL2Jhc2UvbWVkaWEtcXVlcmllcy5wY3NzLmNzc1wiO1xuXG46cm9vdCB7XG4gIC0tZm9ybS1lbGVtZW50LXNlbGVjdC1pY29uOiB1cmwoXCIuLi8uLi9pbWFnZXMvY2hldnJvbi1kb3duLnN2Z1wiKTtcbn1cblxuc2VsZWN0IHtcbiAgbWF4LXdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IHZhcigtLXNwMyk7XG4gIHBhZGRpbmctYmxvY2s6IDA7XG4gIHBhZGRpbmctaW5saW5lLXN0YXJ0OiB2YXIoLS1zcCk7XG4gIHBhZGRpbmctaW5saW5lLWVuZDogdmFyKC0tc3AzKTtcbiAgY29sb3I6IHZhcigtLWNvbG9yLXRleHQtbmV1dHJhbC1sb3VkKTtcbiAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tY29sb3ItLWdyYXktNjApO1xuICBib3JkZXItcmFkaXVzOiB2YXIoLS1ib3JkZXItcmFkaXVzKTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tY29sb3ItLXdoaXRlKTtcbiAgYmFja2dyb3VuZC1pbWFnZTogdmFyKC0tZm9ybS1lbGVtZW50LXNlbGVjdC1pY29uKTtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogcmlnaHQgdmFyKC0tc3ApIGNlbnRlcjsgLyogTFRSICovXG4gIGZvbnQtZmFtaWx5OiBpbmhlcml0O1xuICBmb250LXNpemU6IGluaGVyaXQ7XG4gIGFwcGVhcmFuY2U6IG5vbmU7XG5cbiAgJjpmb2N1cyB7XG4gICAgYm9yZGVyOiBzb2xpZCAycHggdmFyKC0tY29sb3ItLXByaW1hcnktNTApO1xuICAgIG91dGxpbmU6IHNvbGlkIDJweCB2YXIoLS1jb2xvci0tcHJpbWFyeS01MCk7XG5cbiAgICBAc3VwcG9ydHMgKG91dGxpbmUtc3R5bGU6IGRvdWJsZSkge1xuICAgICAgYm9yZGVyLXdpZHRoOiAxcHg7XG4gICAgICBvdXRsaW5lLXdpZHRoOiA2cHg7XG4gICAgICBvdXRsaW5lLXN0eWxlOiBkb3VibGU7XG4gICAgICBvdXRsaW5lLW9mZnNldDogLTFweDtcbiAgICB9XG4gIH1cblxuICAmW2Rpc2FibGVkXSB7XG4gICAgY29sb3I6IHZhcigtLWNvbG9yLS1ncmF5LTYwKTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1jb2xvci0tZ3JheS0xMDApO1xuICB9XG5cbiAgJi5lcnJvciB7XG4gICAgYm9yZGVyOiBzb2xpZCAycHggdmFyKC0tY29sb3ItLXJlZCk7XG5cbiAgICAmOmZvY3VzIHtcbiAgICAgIG91dGxpbmUtY29sb3I6IHZhcigtLWNvbG9yLS1yZWQpO1xuICAgIH1cbiAgfVxuXG4gICZbbXVsdGlwbGVdIHtcbiAgICBoZWlnaHQ6IGF1dG87XG4gICAgcGFkZGluZzogdmFyKC0tc3AwLTUpO1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IG5vbmU7XG4gICAgbGluZS1oZWlnaHQ6IDE7IC8qIE5lZWRlZCBieSBub24tQ2hyb21pdW0gYmFzZWQgTVMgRWRnZSBicm93c2Vycy4gKi9cblxuICAgICYgb3B0aW9uIHtcbiAgICAgIHBhZGRpbmc6IHZhcigtLXNwMC01KTtcbiAgICB9XG4gIH1cblxuICAmLmZvcm0tZWxlbWVudC0tc21hbGwge1xuICAgIGhlaWdodDogdmFyKC0tc3AyLTUpO1xuICB9XG5cbiAgLyogTmVjZXNzYXJ5IHRvIHNob3cgY2hldnJvbiBpbiBmb3JjZWQgY29sb3JzIG1vZGUgaW4gbW9kZXJuIGJyb3dzZXJzLiAqL1xuICBAbWVkaWEgKGZvcmNlZC1jb2xvcnM6IGFjdGl2ZSkge1xuICAgIHBhZGRpbmctaW5saW5lLWVuZDogdmFyKC0tc3ApO1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IG5vbmU7XG4gICAgYXBwZWFyYW5jZTogbGlzdGJveDsgLyogRGVmYXVsdCA8c2VsZWN0PiBhcHBlYXJhbmNlIHZhbHVlIGZvciBtb2Rlcm4gYnJvd3NlcnMuICovXG5cbiAgICAvKiBMZXRzIGJyb3dzZXIgc2V0IDxzZWxlY3Q+IGFwcGVhcmFuY2UgdG8gd2hhdGV2ZXIgdGhlIGJyb3dzZXIncyBkZWZhdWx0IGlzLiAqL1xuICAgIEBzdXBwb3J0cyAoYXBwZWFyYW5jZTogcmV2ZXJ0KSB7XG4gICAgICBhcHBlYXJhbmNlOiByZXZlcnQ7XG4gICAgfVxuICB9XG59XG5cbltkaXI9XCJydGxcIl0gc2VsZWN0IHtcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogbGVmdCB2YXIoLS1zcCkgY2VudGVyO1xufVxuIl19 */

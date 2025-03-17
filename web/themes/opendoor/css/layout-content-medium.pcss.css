@@ -1,0 +1,40 @@
+/**
+ * @file
+ * Grid system definition for the content wide layout.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.layout--content-medium,
+.layout--pass--content-medium > * {
+  grid-column: 1 / 7;
+  width: 100%;
+
+  @media (--grid-md) {
+    grid-column: 2 / 14;
+  }
+
+  @media (--lg) {
+    grid-column: 3 / 13;
+  }
+}
+
+/*
+  If .layout--content-medium is nested within itself, or an element that's inheriting the
+  layout--content-medium styles from its parent region, go full width within its
+  parent .grid-full.
+*/
+.layout--pass--content-medium > *,
+.layout--content-medium {
+  & .layout--content-medium,
+  & .layout--pass--content-medium > * {
+    @media (--grid-md) {
+      grid-column: 1 / 13;
+    }
+
+    @media (--lg) {
+      grid-column: 1 / 11;
+    }
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxheW91dC9sYXlvdXQtY29udGVudC1tZWRpdW0ucGNzcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoibGF5b3V0LWNvbnRlbnQtbWVkaXVtLnBjc3MuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAZmlsZVxuICogR3JpZCBzeXN0ZW0gZGVmaW5pdGlvbiBmb3IgdGhlIGNvbnRlbnQgd2lkZSBsYXlvdXQuXG4gKi9cblxuQGltcG9ydCBcIi4uL2Jhc2UvbWVkaWEtcXVlcmllcy5wY3NzLmNzc1wiO1xuXG4ubGF5b3V0LS1jb250ZW50LW1lZGl1bSxcbi5sYXlvdXQtLXBhc3MtLWNvbnRlbnQtbWVkaXVtID4gKiB7XG4gIGdyaWQtY29sdW1uOiAxIC8gNztcbiAgd2lkdGg6IDEwMCU7XG5cbiAgQG1lZGlhICgtLWdyaWQtbWQpIHtcbiAgICBncmlkLWNvbHVtbjogMiAvIDE0O1xuICB9XG5cbiAgQG1lZGlhICgtLWxnKSB7XG4gICAgZ3JpZC1jb2x1bW46IDMgLyAxMztcbiAgfVxufVxuXG4vKlxuICBJZiAubGF5b3V0LS1jb250ZW50LW1lZGl1bSBpcyBuZXN0ZWQgd2l0aGluIGl0c2VsZiwgb3IgYW4gZWxlbWVudCB0aGF0J3MgaW5oZXJpdGluZyB0aGVcbiAgbGF5b3V0LS1jb250ZW50LW1lZGl1bSBzdHlsZXMgZnJvbSBpdHMgcGFyZW50IHJlZ2lvbiwgZ28gZnVsbCB3aWR0aCB3aXRoaW4gaXRzXG4gIHBhcmVudCAuZ3JpZC1mdWxsLlxuKi9cbi5sYXlvdXQtLXBhc3MtLWNvbnRlbnQtbWVkaXVtID4gKixcbi5sYXlvdXQtLWNvbnRlbnQtbWVkaXVtIHtcbiAgJiAubGF5b3V0LS1jb250ZW50LW1lZGl1bSxcbiAgJiAubGF5b3V0LS1wYXNzLS1jb250ZW50LW1lZGl1bSA+ICoge1xuICAgIEBtZWRpYSAoLS1ncmlkLW1kKSB7XG4gICAgICBncmlkLWNvbHVtbjogMSAvIDEzO1xuICAgIH1cblxuICAgIEBtZWRpYSAoLS1sZykge1xuICAgICAgZ3JpZC1jb2x1bW46IDEgLyAxMTtcbiAgICB9XG4gIH1cbn1cbiJdfQ== */

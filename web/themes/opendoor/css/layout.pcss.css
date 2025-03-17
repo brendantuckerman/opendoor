@@ -1,0 +1,66 @@
+/**
+ * @file
+ * Base Layout.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  padding-inline: var(--container-padding);
+
+  /* This fixes an issue where if the toolbar is open in vertical mode, and
+   * the mobile navigation is open, the "close" button gets pushed outside of
+   * the viewport. */
+  @nest body.is-fixed & {
+    width: calc(100% - var(--drupal-displace-offset-left, 0px) - var(--drupal-displace-offset-right, 0px));
+  }
+}
+
+.page-wrapper {
+  max-width: var(--max-bg-color);
+  background: var(--color--white);
+}
+
+/**
+ * Creates stacking context ensuring that child elements can never appear in
+ * front of mobile navigation.
+ */
+.layout-main-wrapper {
+  position: relative;
+  z-index: 2; /* Ensure dropdown is not cut off by footer. */
+}
+
+/* Contains the social sidebar, and the primary content area. */
+.layout-main {
+  @media (--nav) {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+  }
+}
+
+.main-content {
+  @media (--nav) {
+    width: calc(100% - var(--content-left));
+    margin-inline-end: auto;
+  }
+}
+
+.main-content__container {
+  padding-block-start: var(--sp3);
+
+  @media (--md) {
+    padding-block-start: var(--sp5);
+  }
+}
+
+/*
+ * Contextual link wrappers load without the ".contextual" CSS class, which
+ * causes layout shifts. We fix this by setting this to position: absolute;
+ */
+[data-contextual-id]:not(.contextual) {
+  position: absolute;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxheW91dC9sYXlvdXQucGNzcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoibGF5b3V0LnBjc3MuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAZmlsZVxuICogQmFzZSBMYXlvdXQuXG4gKi9cblxuQGltcG9ydCBcIi4uL2Jhc2UvbWVkaWEtcXVlcmllcy5wY3NzLmNzc1wiO1xuXG4uY29udGFpbmVyIHtcbiAgd2lkdGg6IDEwMCU7XG4gIG1heC13aWR0aDogdmFyKC0tbWF4LXdpZHRoKTtcbiAgcGFkZGluZy1pbmxpbmU6IHZhcigtLWNvbnRhaW5lci1wYWRkaW5nKTtcblxuICAvKiBUaGlzIGZpeGVzIGFuIGlzc3VlIHdoZXJlIGlmIHRoZSB0b29sYmFyIGlzIG9wZW4gaW4gdmVydGljYWwgbW9kZSwgYW5kXG4gICAqIHRoZSBtb2JpbGUgbmF2aWdhdGlvbiBpcyBvcGVuLCB0aGUgXCJjbG9zZVwiIGJ1dHRvbiBnZXRzIHB1c2hlZCBvdXRzaWRlIG9mXG4gICAqIHRoZSB2aWV3cG9ydC4gKi9cbiAgQG5lc3QgYm9keS5pcy1maXhlZCAmIHtcbiAgICB3aWR0aDogY2FsYygxMDAlIC0gdmFyKC0tZHJ1cGFsLWRpc3BsYWNlLW9mZnNldC1sZWZ0LCAwcHgpIC0gdmFyKC0tZHJ1cGFsLWRpc3BsYWNlLW9mZnNldC1yaWdodCwgMHB4KSk7XG4gIH1cbn1cblxuLnBhZ2Utd3JhcHBlciB7XG4gIG1heC13aWR0aDogdmFyKC0tbWF4LWJnLWNvbG9yKTtcbiAgYmFja2dyb3VuZDogdmFyKC0tY29sb3ItLXdoaXRlKTtcbn1cblxuLyoqXG4gKiBDcmVhdGVzIHN0YWNraW5nIGNvbnRleHQgZW5zdXJpbmcgdGhhdCBjaGlsZCBlbGVtZW50cyBjYW4gbmV2ZXIgYXBwZWFyIGluXG4gKiBmcm9udCBvZiBtb2JpbGUgbmF2aWdhdGlvbi5cbiAqL1xuLmxheW91dC1tYWluLXdyYXBwZXIge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHotaW5kZXg6IDI7IC8qIEVuc3VyZSBkcm9wZG93biBpcyBub3QgY3V0IG9mZiBieSBmb290ZXIuICovXG59XG5cbi8qIENvbnRhaW5zIHRoZSBzb2NpYWwgc2lkZWJhciwgYW5kIHRoZSBwcmltYXJ5IGNvbnRlbnQgYXJlYS4gKi9cbi5sYXlvdXQtbWFpbiB7XG4gIEBtZWRpYSAoLS1uYXYpIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZGlyZWN0aW9uOiByb3ctcmV2ZXJzZTtcbiAgICBmbGV4LXdyYXA6IHdyYXA7XG4gIH1cbn1cblxuLm1haW4tY29udGVudCB7XG4gIEBtZWRpYSAoLS1uYXYpIHtcbiAgICB3aWR0aDogY2FsYygxMDAlIC0gdmFyKC0tY29udGVudC1sZWZ0KSk7XG4gICAgbWFyZ2luLWlubGluZS1lbmQ6IGF1dG87XG4gIH1cbn1cblxuLm1haW4tY29udGVudF9fY29udGFpbmVyIHtcbiAgcGFkZGluZy1ibG9jay1zdGFydDogdmFyKC0tc3AzKTtcblxuICBAbWVkaWEgKC0tbWQpIHtcbiAgICBwYWRkaW5nLWJsb2NrLXN0YXJ0OiB2YXIoLS1zcDUpO1xuICB9XG59XG5cbi8qXG4gKiBDb250ZXh0dWFsIGxpbmsgd3JhcHBlcnMgbG9hZCB3aXRob3V0IHRoZSBcIi5jb250ZXh0dWFsXCIgQ1NTIGNsYXNzLCB3aGljaFxuICogY2F1c2VzIGxheW91dCBzaGlmdHMuIFdlIGZpeCB0aGlzIGJ5IHNldHRpbmcgdGhpcyB0byBwb3NpdGlvbjogYWJzb2x1dGU7XG4gKi9cbltkYXRhLWNvbnRleHR1YWwtaWRdOm5vdCguY29udGV4dHVhbCkge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG59XG4iXX0= */

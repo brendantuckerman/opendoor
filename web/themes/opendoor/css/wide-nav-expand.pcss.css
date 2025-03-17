@@ -1,0 +1,110 @@
+/**
+ * @file
+ * Button which expands the navigation at wide viewport widths.
+ */
+
+@import "../../base/media-queries.pcss.css";
+
+.wide-nav-expand {
+  display: none;
+
+  @media (--nav) {
+    display: flex;
+    visibility: hidden;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: var(--content-left);
+    height: var(--sp6);
+    cursor: pointer;
+    pointer-events: auto;
+    color: var(--color--white);
+    border: 0;
+    background-color: var(--color--primary-50);
+
+    &:focus {
+      outline: solid 2px currentColor;
+      outline-offset: -4px;
+    }
+  }
+}
+
+body:not(.is-always-mobile-nav) .is-fixed .wide-nav-expand {
+  @media (--nav) {
+    visibility: visible;
+  }
+}
+
+body.is-always-mobile-nav .wide-nav-expand {
+  @media (--nav) {
+    visibility: hidden;
+  }
+}
+
+.wide-nav-expand__icon {
+  position: relative;
+  width: var(--sp2);
+  height: 21px;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  opacity: 0;
+  transform-style: preserve-3d;
+
+  & > span {
+    display: block;
+    height: 0;
+    /* Intentionally not using CSS logical properties. */
+    border-top: solid 3px currentColor;
+
+    &:nth-child(1) {
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      width: 100%;
+      height: 0;
+      transition: transform 0.2s;
+      background-color: currentColor;
+    }
+
+    &:nth-child(2) {
+      position: absolute;
+      inset-block-start: 9px;
+      inset-inline-start: 0;
+      width: 100%;
+      height: 0;
+      transition: opacity 0.2s;
+      background-color: currentColor;
+    }
+
+    &:nth-child(3) {
+      position: absolute;
+      inset-block: auto 0;
+      inset-inline-start: 0;
+      width: 100%;
+      height: 0;
+      transition: transform 0.2s;
+      background-color: currentColor;
+    }
+  }
+}
+
+.is-fixed .wide-nav-expand__icon {
+  opacity: 1;
+}
+
+[aria-expanded="true"] .wide-nav-expand__icon {
+  & > span:nth-child(1) {
+    inset-block-start: 9px;
+    transform: rotate(-45deg);
+  }
+
+  & > span:nth-child(2) {
+    opacity: 0;
+  }
+
+  & > span:nth-child(3) {
+    inset-block-start: 9px;
+    transform: rotate(45deg);
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvbmF2aWdhdGlvbi93aWRlLW5hdi1leHBhbmQucGNzcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoid2lkZS1uYXYtZXhwYW5kLnBjc3MuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAZmlsZVxuICogQnV0dG9uIHdoaWNoIGV4cGFuZHMgdGhlIG5hdmlnYXRpb24gYXQgd2lkZSB2aWV3cG9ydCB3aWR0aHMuXG4gKi9cblxuQGltcG9ydCBcIi4uLy4uL2Jhc2UvbWVkaWEtcXVlcmllcy5wY3NzLmNzc1wiO1xuXG4ud2lkZS1uYXYtZXhwYW5kIHtcbiAgZGlzcGxheTogbm9uZTtcblxuICBAbWVkaWEgKC0tbmF2KSB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICB2aXNpYmlsaXR5OiBoaWRkZW47XG4gICAgZmxleC1zaHJpbms6IDA7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICB3aWR0aDogdmFyKC0tY29udGVudC1sZWZ0KTtcbiAgICBoZWlnaHQ6IHZhcigtLXNwNik7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIHBvaW50ZXItZXZlbnRzOiBhdXRvO1xuICAgIGNvbG9yOiB2YXIoLS1jb2xvci0td2hpdGUpO1xuICAgIGJvcmRlcjogMDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1jb2xvci0tcHJpbWFyeS01MCk7XG5cbiAgICAmOmZvY3VzIHtcbiAgICAgIG91dGxpbmU6IHNvbGlkIDJweCBjdXJyZW50Q29sb3I7XG4gICAgICBvdXRsaW5lLW9mZnNldDogLTRweDtcbiAgICB9XG4gIH1cbn1cblxuYm9keTpub3QoLmlzLWFsd2F5cy1tb2JpbGUtbmF2KSAuaXMtZml4ZWQgLndpZGUtbmF2LWV4cGFuZCB7XG4gIEBtZWRpYSAoLS1uYXYpIHtcbiAgICB2aXNpYmlsaXR5OiB2aXNpYmxlO1xuICB9XG59XG5cbmJvZHkuaXMtYWx3YXlzLW1vYmlsZS1uYXYgLndpZGUtbmF2LWV4cGFuZCB7XG4gIEBtZWRpYSAoLS1uYXYpIHtcbiAgICB2aXNpYmlsaXR5OiBoaWRkZW47XG4gIH1cbn1cblxuLndpZGUtbmF2LWV4cGFuZF9faWNvbiB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgd2lkdGg6IHZhcigtLXNwMik7XG4gIGhlaWdodDogMjFweDtcbiAgdHJhbnNpdGlvbjogb3BhY2l0eSAwLjJzO1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbiAgb3BhY2l0eTogMDtcbiAgdHJhbnNmb3JtLXN0eWxlOiBwcmVzZXJ2ZS0zZDtcblxuICAmID4gc3BhbiB7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgaGVpZ2h0OiAwO1xuICAgIC8qIEludGVudGlvbmFsbHkgbm90IHVzaW5nIENTUyBsb2dpY2FsIHByb3BlcnRpZXMuICovXG4gICAgYm9yZGVyLXRvcDogc29saWQgM3B4IGN1cnJlbnRDb2xvcjtcblxuICAgICY6bnRoLWNoaWxkKDEpIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGluc2V0LWJsb2NrLXN0YXJ0OiAwO1xuICAgICAgaW5zZXQtaW5saW5lLXN0YXJ0OiAwO1xuICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICBoZWlnaHQ6IDA7XG4gICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4ycztcbiAgICAgIGJhY2tncm91bmQtY29sb3I6IGN1cnJlbnRDb2xvcjtcbiAgICB9XG5cbiAgICAmOm50aC1jaGlsZCgyKSB7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBpbnNldC1ibG9jay1zdGFydDogOXB4O1xuICAgICAgaW5zZXQtaW5saW5lLXN0YXJ0OiAwO1xuICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICBoZWlnaHQ6IDA7XG4gICAgICB0cmFuc2l0aW9uOiBvcGFjaXR5IDAuMnM7XG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiBjdXJyZW50Q29sb3I7XG4gICAgfVxuXG4gICAgJjpudGgtY2hpbGQoMykge1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgaW5zZXQtYmxvY2s6IGF1dG8gMDtcbiAgICAgIGluc2V0LWlubGluZS1zdGFydDogMDtcbiAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgaGVpZ2h0OiAwO1xuICAgICAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuMnM7XG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiBjdXJyZW50Q29sb3I7XG4gICAgfVxuICB9XG59XG5cbi5pcy1maXhlZCAud2lkZS1uYXYtZXhwYW5kX19pY29uIHtcbiAgb3BhY2l0eTogMTtcbn1cblxuW2FyaWEtZXhwYW5kZWQ9XCJ0cnVlXCJdIC53aWRlLW5hdi1leHBhbmRfX2ljb24ge1xuICAmID4gc3BhbjpudGgtY2hpbGQoMSkge1xuICAgIGluc2V0LWJsb2NrLXN0YXJ0OiA5cHg7XG4gICAgdHJhbnNmb3JtOiByb3RhdGUoLTQ1ZGVnKTtcbiAgfVxuXG4gICYgPiBzcGFuOm50aC1jaGlsZCgyKSB7XG4gICAgb3BhY2l0eTogMDtcbiAgfVxuXG4gICYgPiBzcGFuOm50aC1jaGlsZCgzKSB7XG4gICAgaW5zZXQtYmxvY2stc3RhcnQ6IDlweDtcbiAgICB0cmFuc2Zvcm06IHJvdGF0ZSg0NWRlZyk7XG4gIH1cbn1cbiJdfQ== */

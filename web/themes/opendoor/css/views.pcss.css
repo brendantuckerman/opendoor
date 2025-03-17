@@ -1,0 +1,18 @@
+/**
+ * @file
+ * Styles for views.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.view,
+.view-content {
+  display: grid;
+  gap: var(--sp2);
+  grid-template-rows: max-content;
+
+  @media (--md) {
+    gap: var(--sp3);
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxheW91dC92aWV3cy5wY3NzLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJ2aWV3cy5wY3NzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGZpbGVcbiAqIFN0eWxlcyBmb3Igdmlld3MuXG4gKi9cblxuQGltcG9ydCBcIi4uL2Jhc2UvbWVkaWEtcXVlcmllcy5wY3NzLmNzc1wiO1xuXG4udmlldyxcbi52aWV3LWNvbnRlbnQge1xuICBkaXNwbGF5OiBncmlkO1xuICBnYXA6IHZhcigtLXNwMik7XG4gIGdyaWQtdGVtcGxhdGUtcm93czogbWF4LWNvbnRlbnQ7XG5cbiAgQG1lZGlhICgtLW1kKSB7XG4gICAgZ2FwOiB2YXIoLS1zcDMpO1xuICB9XG59XG4iXX0= */

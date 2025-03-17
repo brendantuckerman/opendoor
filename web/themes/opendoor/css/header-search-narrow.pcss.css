@@ -1,0 +1,174 @@
+/**
+ * @file
+ * Header Search Narrow Block.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.block-search-narrow {
+  margin-inline: calc(-1 * var(--sp));
+  margin-block-end: var(--sp2);
+  background: var(--color--black);
+
+  & .search-block-form {
+    display: flex;
+  }
+
+  & .form-item {
+    flex-grow: 1;
+    margin: 0;
+  }
+
+  & .form-actions {
+    margin: 0;
+  }
+
+  & input[type="search"] {
+    width: calc(100% + var(--sp2));
+    height: var(--sp3);
+    padding-block: 0;
+    padding-inline-start: var(--sp);
+    padding-inline-end: var(--sp);
+    transition: background-size 0.4s;
+    color: var(--color--white);
+    border: solid 1px transparent;
+    background-color: transparent;
+    background-image: linear-gradient(var(--color--primary-50), var(--color--primary-50)); /* Two values are needed for IE11 support. */
+    background-repeat: no-repeat;
+    background-position: bottom left; /* LTR */
+    background-size: 0% 5px;
+    box-shadow: none;
+    font-family: var(--font-serif);
+    font-size: 16px;
+    -webkit-appearance: none;
+
+    &:focus {
+      outline: solid 4px transparent;
+      outline-offset: -4px;
+      background-size: 100% 5px;
+    }
+
+    @media (--md) {
+      height: var(--sp4);
+      padding-inline-start: var(--sp2);
+      padding-inline-end: var(--sp2);
+    }
+  }
+
+  & .search-form__submit {
+    position: relative;
+    overflow: hidden;
+    align-self: stretch;
+    width: var(--sp3);
+    height: auto;
+    margin-block: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-block: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    cursor: pointer;
+    border-color: transparent;
+    background-color: transparent;
+
+    /*
+      When in Windows high contrast mode, FF will not output either background
+      images or SVGs that are nested directly within a <button> element, so we add a <span>.
+    */
+    & .icon--search {
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      display: block;
+      width: 100%; /* Width of the SVG background image. */
+      height: 100%;
+      pointer-events: none;
+      background-image: url("../../images/search--white.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: auto;
+
+      &::after {
+        position: absolute;
+        inset-block-end: 0;
+        inset-inline-start: 0;
+        width: 100%;
+        height: 0;
+        content: "";
+        transition: transform 0.2s;
+        transform: scaleX(0);
+        transform-origin: left; /* LTR */
+        border-block-start: solid 5px var(--color--primary-50);
+      }
+
+      @media (forced-colors: active) {
+        background: buttontext;
+        mask-image: url("../../images/search--white.svg");
+        mask-repeat: no-repeat;
+        mask-position: center;
+      }
+    }
+
+    &:focus {
+      outline: solid 4px transparent;
+      outline-offset: -4px;
+      box-shadow: none;
+
+      & span::after {
+        transform: scaleX(1);
+      }
+
+      @media screen and (-ms-high-contrast: active) {
+        border-bottom-width: var(--sp0-5);
+
+        & span::after {
+          content: none;
+        }
+      }
+    }
+
+    @media (--md) {
+      width: 80px;
+    }
+
+    @media screen and (-ms-high-contrast: active) {
+      /* IE11's high contrast show will not show the background image, so we show the text. */
+      & .visually-hidden {
+        position: static;
+        overflow: visible;
+        clip: auto;
+        width: auto;
+        height: auto;
+        text-align: center;
+      }
+
+      /* Edge's high contrast does show the background image, so we hide it. */
+      & .icon--search {
+        display: none;
+      }
+    }
+  }
+
+  /* 500px is the width of the primary nav at mobile. */
+  @media (min-width: 500px) {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+  }
+}
+
+body:not(.is-always-mobile-nav) .block-search-narrow {
+  @media (--nav) {
+    display: none;
+  }
+}
+
+[dir="rtl"] .block-search-narrow {
+  & input[type="search"] {
+    background-position: bottom right;
+  }
+
+  & .search-form__submit .icon--search::after {
+    transform-origin: right;
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvaGVhZGVyLXNlYXJjaC1uYXJyb3cucGNzcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoiaGVhZGVyLXNlYXJjaC1uYXJyb3cucGNzcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBmaWxlXG4gKiBIZWFkZXIgU2VhcmNoIE5hcnJvdyBCbG9jay5cbiAqL1xuXG5AaW1wb3J0IFwiLi4vYmFzZS9tZWRpYS1xdWVyaWVzLnBjc3MuY3NzXCI7XG5cbi5ibG9jay1zZWFyY2gtbmFycm93IHtcbiAgbWFyZ2luLWlubGluZTogY2FsYygtMSAqIHZhcigtLXNwKSk7XG4gIG1hcmdpbi1ibG9jay1lbmQ6IHZhcigtLXNwMik7XG4gIGJhY2tncm91bmQ6IHZhcigtLWNvbG9yLS1ibGFjayk7XG5cbiAgJiAuc2VhcmNoLWJsb2NrLWZvcm0ge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gIH1cblxuICAmIC5mb3JtLWl0ZW0ge1xuICAgIGZsZXgtZ3JvdzogMTtcbiAgICBtYXJnaW46IDA7XG4gIH1cblxuICAmIC5mb3JtLWFjdGlvbnMge1xuICAgIG1hcmdpbjogMDtcbiAgfVxuXG4gICYgaW5wdXRbdHlwZT1cInNlYXJjaFwiXSB7XG4gICAgd2lkdGg6IGNhbGMoMTAwJSArIHZhcigtLXNwMikpO1xuICAgIGhlaWdodDogdmFyKC0tc3AzKTtcbiAgICBwYWRkaW5nLWJsb2NrOiAwO1xuICAgIHBhZGRpbmctaW5saW5lLXN0YXJ0OiB2YXIoLS1zcCk7XG4gICAgcGFkZGluZy1pbmxpbmUtZW5kOiB2YXIoLS1zcCk7XG4gICAgdHJhbnNpdGlvbjogYmFja2dyb3VuZC1zaXplIDAuNHM7XG4gICAgY29sb3I6IHZhcigtLWNvbG9yLS13aGl0ZSk7XG4gICAgYm9yZGVyOiBzb2xpZCAxcHggdHJhbnNwYXJlbnQ7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gICAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KHZhcigtLWNvbG9yLS1wcmltYXJ5LTUwKSwgdmFyKC0tY29sb3ItLXByaW1hcnktNTApKTsgLyogVHdvIHZhbHVlcyBhcmUgbmVlZGVkIGZvciBJRTExIHN1cHBvcnQuICovXG4gICAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBib3R0b20gbGVmdDsgLyogTFRSICovXG4gICAgYmFja2dyb3VuZC1zaXplOiAwJSA1cHg7XG4gICAgYm94LXNoYWRvdzogbm9uZTtcbiAgICBmb250LWZhbWlseTogdmFyKC0tZm9udC1zZXJpZik7XG4gICAgZm9udC1zaXplOiAxNnB4O1xuICAgIC13ZWJraXQtYXBwZWFyYW5jZTogbm9uZTtcblxuICAgICY6Zm9jdXMge1xuICAgICAgb3V0bGluZTogc29saWQgNHB4IHRyYW5zcGFyZW50O1xuICAgICAgb3V0bGluZS1vZmZzZXQ6IC00cHg7XG4gICAgICBiYWNrZ3JvdW5kLXNpemU6IDEwMCUgNXB4O1xuICAgIH1cblxuICAgIEBtZWRpYSAoLS1tZCkge1xuICAgICAgaGVpZ2h0OiB2YXIoLS1zcDQpO1xuICAgICAgcGFkZGluZy1pbmxpbmUtc3RhcnQ6IHZhcigtLXNwMik7XG4gICAgICBwYWRkaW5nLWlubGluZS1lbmQ6IHZhcigtLXNwMik7XG4gICAgfVxuICB9XG5cbiAgJiAuc2VhcmNoLWZvcm1fX3N1Ym1pdCB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgYWxpZ24tc2VsZjogc3RyZXRjaDtcbiAgICB3aWR0aDogdmFyKC0tc3AzKTtcbiAgICBoZWlnaHQ6IGF1dG87XG4gICAgbWFyZ2luLWJsb2NrOiAwO1xuICAgIG1hcmdpbi1pbmxpbmUtc3RhcnQ6IDA7XG4gICAgbWFyZ2luLWlubGluZS1lbmQ6IDA7XG4gICAgcGFkZGluZy1ibG9jazogMDtcbiAgICBwYWRkaW5nLWlubGluZS1zdGFydDogMDtcbiAgICBwYWRkaW5nLWlubGluZS1lbmQ6IDA7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlci1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG5cbiAgICAvKlxuICAgICAgV2hlbiBpbiBXaW5kb3dzIGhpZ2ggY29udHJhc3QgbW9kZSwgRkYgd2lsbCBub3Qgb3V0cHV0IGVpdGhlciBiYWNrZ3JvdW5kXG4gICAgICBpbWFnZXMgb3IgU1ZHcyB0aGF0IGFyZSBuZXN0ZWQgZGlyZWN0bHkgd2l0aGluIGEgPGJ1dHRvbj4gZWxlbWVudCwgc28gd2UgYWRkIGEgPHNwYW4+LlxuICAgICovXG4gICAgJiAuaWNvbi0tc2VhcmNoIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGluc2V0LWJsb2NrLXN0YXJ0OiAwO1xuICAgICAgaW5zZXQtaW5saW5lLXN0YXJ0OiAwO1xuICAgICAgZGlzcGxheTogYmxvY2s7XG4gICAgICB3aWR0aDogMTAwJTsgLyogV2lkdGggb2YgdGhlIFNWRyBiYWNrZ3JvdW5kIGltYWdlLiAqL1xuICAgICAgaGVpZ2h0OiAxMDAlO1xuICAgICAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG4gICAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIuLi8uLi9pbWFnZXMvc2VhcmNoLS13aGl0ZS5zdmdcIik7XG4gICAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuICAgICAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xuICAgICAgYmFja2dyb3VuZC1zaXplOiBhdXRvO1xuXG4gICAgICAmOjphZnRlciB7XG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgaW5zZXQtYmxvY2stZW5kOiAwO1xuICAgICAgICBpbnNldC1pbmxpbmUtc3RhcnQ6IDA7XG4gICAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgICBoZWlnaHQ6IDA7XG4gICAgICAgIGNvbnRlbnQ6IFwiXCI7XG4gICAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjJzO1xuICAgICAgICB0cmFuc2Zvcm06IHNjYWxlWCgwKTtcbiAgICAgICAgdHJhbnNmb3JtLW9yaWdpbjogbGVmdDsgLyogTFRSICovXG4gICAgICAgIGJvcmRlci1ibG9jay1zdGFydDogc29saWQgNXB4IHZhcigtLWNvbG9yLS1wcmltYXJ5LTUwKTtcbiAgICAgIH1cblxuICAgICAgQG1lZGlhIChmb3JjZWQtY29sb3JzOiBhY3RpdmUpIHtcbiAgICAgICAgYmFja2dyb3VuZDogYnV0dG9udGV4dDtcbiAgICAgICAgbWFzay1pbWFnZTogdXJsKFwiLi4vLi4vaW1hZ2VzL3NlYXJjaC0td2hpdGUuc3ZnXCIpO1xuICAgICAgICBtYXNrLXJlcGVhdDogbm8tcmVwZWF0O1xuICAgICAgICBtYXNrLXBvc2l0aW9uOiBjZW50ZXI7XG4gICAgICB9XG4gICAgfVxuXG4gICAgJjpmb2N1cyB7XG4gICAgICBvdXRsaW5lOiBzb2xpZCA0cHggdHJhbnNwYXJlbnQ7XG4gICAgICBvdXRsaW5lLW9mZnNldDogLTRweDtcbiAgICAgIGJveC1zaGFkb3c6IG5vbmU7XG5cbiAgICAgICYgc3Bhbjo6YWZ0ZXIge1xuICAgICAgICB0cmFuc2Zvcm06IHNjYWxlWCgxKTtcbiAgICAgIH1cblxuICAgICAgQG1lZGlhIHNjcmVlbiBhbmQgKC1tcy1oaWdoLWNvbnRyYXN0OiBhY3RpdmUpIHtcbiAgICAgICAgYm9yZGVyLWJvdHRvbS13aWR0aDogdmFyKC0tc3AwLTUpO1xuXG4gICAgICAgICYgc3Bhbjo6YWZ0ZXIge1xuICAgICAgICAgIGNvbnRlbnQ6IG5vbmU7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG5cbiAgICBAbWVkaWEgKC0tbWQpIHtcbiAgICAgIHdpZHRoOiA4MHB4O1xuICAgIH1cblxuICAgIEBtZWRpYSBzY3JlZW4gYW5kICgtbXMtaGlnaC1jb250cmFzdDogYWN0aXZlKSB7XG4gICAgICAvKiBJRTExJ3MgaGlnaCBjb250cmFzdCBzaG93IHdpbGwgbm90IHNob3cgdGhlIGJhY2tncm91bmQgaW1hZ2UsIHNvIHdlIHNob3cgdGhlIHRleHQuICovXG4gICAgICAmIC52aXN1YWxseS1oaWRkZW4ge1xuICAgICAgICBwb3NpdGlvbjogc3RhdGljO1xuICAgICAgICBvdmVyZmxvdzogdmlzaWJsZTtcbiAgICAgICAgY2xpcDogYXV0bztcbiAgICAgICAgd2lkdGg6IGF1dG87XG4gICAgICAgIGhlaWdodDogYXV0bztcbiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICAgfVxuXG4gICAgICAvKiBFZGdlJ3MgaGlnaCBjb250cmFzdCBkb2VzIHNob3cgdGhlIGJhY2tncm91bmQgaW1hZ2UsIHNvIHdlIGhpZGUgaXQuICovXG4gICAgICAmIC5pY29uLS1zZWFyY2gge1xuICAgICAgICBkaXNwbGF5OiBub25lO1xuICAgICAgfVxuICAgIH1cbiAgfVxuXG4gIC8qIDUwMHB4IGlzIHRoZSB3aWR0aCBvZiB0aGUgcHJpbWFyeSBuYXYgYXQgbW9iaWxlLiAqL1xuICBAbWVkaWEgKG1pbi13aWR0aDogNTAwcHgpIHtcbiAgICBtYXJnaW4taW5saW5lLXN0YXJ0OiAwO1xuICAgIG1hcmdpbi1pbmxpbmUtZW5kOiAwO1xuICB9XG59XG5cbmJvZHk6bm90KC5pcy1hbHdheXMtbW9iaWxlLW5hdikgLmJsb2NrLXNlYXJjaC1uYXJyb3cge1xuICBAbWVkaWEgKC0tbmF2KSB7XG4gICAgZGlzcGxheTogbm9uZTtcbiAgfVxufVxuXG5bZGlyPVwicnRsXCJdIC5ibG9jay1zZWFyY2gtbmFycm93IHtcbiAgJiBpbnB1dFt0eXBlPVwic2VhcmNoXCJdIHtcbiAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBib3R0b20gcmlnaHQ7XG4gIH1cblxuICAmIC5zZWFyY2gtZm9ybV9fc3VibWl0IC5pY29uLS1zZWFyY2g6OmFmdGVyIHtcbiAgICB0cmFuc2Zvcm0tb3JpZ2luOiByaWdodDtcbiAgfVxufVxuIl19 */

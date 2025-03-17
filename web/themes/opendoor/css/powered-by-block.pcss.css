@@ -1,0 +1,45 @@
+/**
+ * @file
+ * Powered by block specific styles.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.block-system-powered-by-block {
+  letter-spacing: 0.02em;
+  font-size: 14px;
+  line-height: var(--sp);
+
+  & a {
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  & .drupal-logo {
+    display: inline-block;
+    margin-block-start: calc(-1 * var(--sp) / 4);
+    margin-inline-start: calc(var(--sp) / 4);
+  }
+
+  & svg {
+    width: 0.875rem; /* 14 */
+    height: 1.1875rem; /* 19 */
+    vertical-align: top;
+    fill: currentColor;
+  }
+}
+
+.site-footer .block-system-powered-by-block {
+  & a {
+    color: var(--color--white);
+  }
+
+  & svg path {
+    fill: var(--color--white);
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvcG93ZXJlZC1ieS1ibG9jay5wY3NzLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJwb3dlcmVkLWJ5LWJsb2NrLnBjc3MuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAZmlsZVxuICogUG93ZXJlZCBieSBibG9jayBzcGVjaWZpYyBzdHlsZXMuXG4gKi9cblxuQGltcG9ydCBcIi4uL2Jhc2UvbWVkaWEtcXVlcmllcy5wY3NzLmNzc1wiO1xuXG4uYmxvY2stc3lzdGVtLXBvd2VyZWQtYnktYmxvY2sge1xuICBsZXR0ZXItc3BhY2luZzogMC4wMmVtO1xuICBmb250LXNpemU6IDE0cHg7XG4gIGxpbmUtaGVpZ2h0OiB2YXIoLS1zcCk7XG5cbiAgJiBhIHtcbiAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcblxuICAgICY6aG92ZXIsXG4gICAgJjpmb2N1cyB7XG4gICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gICAgfVxuICB9XG5cbiAgJiAuZHJ1cGFsLWxvZ28ge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICBtYXJnaW4tYmxvY2stc3RhcnQ6IGNhbGMoLTEgKiB2YXIoLS1zcCkgLyA0KTtcbiAgICBtYXJnaW4taW5saW5lLXN0YXJ0OiBjYWxjKHZhcigtLXNwKSAvIDQpO1xuICB9XG5cbiAgJiBzdmcge1xuICAgIHdpZHRoOiAwLjg3NXJlbTsgLyogMTQgKi9cbiAgICBoZWlnaHQ6IDEuMTg3NXJlbTsgLyogMTkgKi9cbiAgICB2ZXJ0aWNhbC1hbGlnbjogdG9wO1xuICAgIGZpbGw6IGN1cnJlbnRDb2xvcjtcbiAgfVxufVxuXG4uc2l0ZS1mb290ZXIgLmJsb2NrLXN5c3RlbS1wb3dlcmVkLWJ5LWJsb2NrIHtcbiAgJiBhIHtcbiAgICBjb2xvcjogdmFyKC0tY29sb3ItLXdoaXRlKTtcbiAgfVxuXG4gICYgc3ZnIHBhdGgge1xuICAgIGZpbGw6IHZhcigtLWNvbG9yLS13aGl0ZSk7XG4gIH1cbn1cbiJdfQ== */

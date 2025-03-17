@@ -1,0 +1,106 @@
+/**
+ * @file
+ * Social Bar Region
+ .
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.social-bar {
+  @media (--nav) {
+    flex-shrink: 0;
+    width: var(--content-left);
+    background-color: var(--color--gray-100);
+  }
+}
+
+.social-bar__inner {
+  position: relative;
+  padding-block: var(--sp0-5);
+  padding-inline-start: var(--sp);
+  padding-inline-end: var(--sp);
+
+  @media (--nav) {
+    position: relative;
+    width: var(--content-left);
+    padding-block: var(--sp5);
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+
+    &.is-fixed {
+      position: fixed;
+      inset-block-start: var(--sp6);
+      inset-inline-start: 0;
+      height: calc(100vh - var(--sp6));
+    }
+  }
+}
+
+.rotate {
+  & > * {
+    margin-block-end: var(--sp2);
+
+    @media (--nav) {
+      display: flex;
+      align-items: center;
+      margin-block-end: 0;
+
+      &:not(:first-child) {
+        margin-inline-end: var(--sp2);
+      }
+    }
+  }
+
+  & .contextual {
+    @media (--nav) {
+      inset-inline: 100% auto;
+      transform: rotate(90deg); /* LTR */
+      transform-origin: top left; /* LTR */
+
+      & .trigger {
+        float: left; /* LTR */
+
+        /**
+         * Chromium and Webkit do not yet support flow relative logical properties,
+         * such as float: inline-end. However, PostCSS Logical does not compile this
+         * value, so we accommodate by not using these.
+         *
+         * @see https://caniuse.com/mdn-css_properties_clear_flow_relative_values
+         * @see https://github.com/csstools/postcss-plugins/issues/632
+         */
+        &:dir(rtl) {
+          float: right;
+        }
+      }
+    }
+  }
+
+  @media (--nav) {
+    position: absolute;
+    inset-inline-start: 50%;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100vh;
+    transform: rotate(-90deg) translateX(-100%); /* LTR */
+    transform-origin: left; /* LTR */
+
+    @supports (width: max-content) {
+      width: max-content;
+    }
+  }
+}
+
+[dir="rtl"] {
+  @media (--nav) {
+    & .rotate {
+      transform: rotate(90deg) translateX(100%);
+      transform-origin: right;
+
+      & .contextual {
+        transform: rotate(-90deg);
+        transform-origin: top right;
+      }
+    }
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxheW91dC9zb2NpYWwtYmFyLnBjc3MuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6InNvY2lhbC1iYXIucGNzcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBmaWxlXG4gKiBTb2NpYWwgQmFyIFJlZ2lvblxuIC5cbiAqL1xuXG5AaW1wb3J0IFwiLi4vYmFzZS9tZWRpYS1xdWVyaWVzLnBjc3MuY3NzXCI7XG5cbi5zb2NpYWwtYmFyIHtcbiAgQG1lZGlhICgtLW5hdikge1xuICAgIGZsZXgtc2hyaW5rOiAwO1xuICAgIHdpZHRoOiB2YXIoLS1jb250ZW50LWxlZnQpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWNvbG9yLS1ncmF5LTEwMCk7XG4gIH1cbn1cblxuLnNvY2lhbC1iYXJfX2lubmVyIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBwYWRkaW5nLWJsb2NrOiB2YXIoLS1zcDAtNSk7XG4gIHBhZGRpbmctaW5saW5lLXN0YXJ0OiB2YXIoLS1zcCk7XG4gIHBhZGRpbmctaW5saW5lLWVuZDogdmFyKC0tc3ApO1xuXG4gIEBtZWRpYSAoLS1uYXYpIHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgd2lkdGg6IHZhcigtLWNvbnRlbnQtbGVmdCk7XG4gICAgcGFkZGluZy1ibG9jazogdmFyKC0tc3A1KTtcbiAgICBwYWRkaW5nLWlubGluZS1zdGFydDogMDtcbiAgICBwYWRkaW5nLWlubGluZS1lbmQ6IDA7XG5cbiAgICAmLmlzLWZpeGVkIHtcbiAgICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICAgIGluc2V0LWJsb2NrLXN0YXJ0OiB2YXIoLS1zcDYpO1xuICAgICAgaW5zZXQtaW5saW5lLXN0YXJ0OiAwO1xuICAgICAgaGVpZ2h0OiBjYWxjKDEwMHZoIC0gdmFyKC0tc3A2KSk7XG4gICAgfVxuICB9XG59XG5cbi5yb3RhdGUge1xuICAmID4gKiB7XG4gICAgbWFyZ2luLWJsb2NrLWVuZDogdmFyKC0tc3AyKTtcblxuICAgIEBtZWRpYSAoLS1uYXYpIHtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgbWFyZ2luLWJsb2NrLWVuZDogMDtcblxuICAgICAgJjpub3QoOmZpcnN0LWNoaWxkKSB7XG4gICAgICAgIG1hcmdpbi1pbmxpbmUtZW5kOiB2YXIoLS1zcDIpO1xuICAgICAgfVxuICAgIH1cbiAgfVxuXG4gICYgLmNvbnRleHR1YWwge1xuICAgIEBtZWRpYSAoLS1uYXYpIHtcbiAgICAgIGluc2V0LWlubGluZTogMTAwJSBhdXRvO1xuICAgICAgdHJhbnNmb3JtOiByb3RhdGUoOTBkZWcpOyAvKiBMVFIgKi9cbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IHRvcCBsZWZ0OyAvKiBMVFIgKi9cblxuICAgICAgJiAudHJpZ2dlciB7XG4gICAgICAgIGZsb2F0OiBsZWZ0OyAvKiBMVFIgKi9cblxuICAgICAgICAvKipcbiAgICAgICAgICogQ2hyb21pdW0gYW5kIFdlYmtpdCBkbyBub3QgeWV0IHN1cHBvcnQgZmxvdyByZWxhdGl2ZSBsb2dpY2FsIHByb3BlcnRpZXMsXG4gICAgICAgICAqIHN1Y2ggYXMgZmxvYXQ6IGlubGluZS1lbmQuIEhvd2V2ZXIsIFBvc3RDU1MgTG9naWNhbCBkb2VzIG5vdCBjb21waWxlIHRoaXNcbiAgICAgICAgICogdmFsdWUsIHNvIHdlIGFjY29tbW9kYXRlIGJ5IG5vdCB1c2luZyB0aGVzZS5cbiAgICAgICAgICpcbiAgICAgICAgICogQHNlZSBodHRwczovL2Nhbml1c2UuY29tL21kbi1jc3NfcHJvcGVydGllc19jbGVhcl9mbG93X3JlbGF0aXZlX3ZhbHVlc1xuICAgICAgICAgKiBAc2VlIGh0dHBzOi8vZ2l0aHViLmNvbS9jc3N0b29scy9wb3N0Y3NzLXBsdWdpbnMvaXNzdWVzLzYzMlxuICAgICAgICAgKi9cbiAgICAgICAgJjpkaXIocnRsKSB7XG4gICAgICAgICAgZmxvYXQ6IHJpZ2h0O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG5cbiAgQG1lZGlhICgtLW5hdikge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBpbnNldC1pbmxpbmUtc3RhcnQ6IDUwJTtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZGlyZWN0aW9uOiByb3ctcmV2ZXJzZTtcbiAgICB3aWR0aDogMTAwdmg7XG4gICAgdHJhbnNmb3JtOiByb3RhdGUoLTkwZGVnKSB0cmFuc2xhdGVYKC0xMDAlKTsgLyogTFRSICovXG4gICAgdHJhbnNmb3JtLW9yaWdpbjogbGVmdDsgLyogTFRSICovXG5cbiAgICBAc3VwcG9ydHMgKHdpZHRoOiBtYXgtY29udGVudCkge1xuICAgICAgd2lkdGg6IG1heC1jb250ZW50O1xuICAgIH1cbiAgfVxufVxuXG5bZGlyPVwicnRsXCJdIHtcbiAgQG1lZGlhICgtLW5hdikge1xuICAgICYgLnJvdGF0ZSB7XG4gICAgICB0cmFuc2Zvcm06IHJvdGF0ZSg5MGRlZykgdHJhbnNsYXRlWCgxMDAlKTtcbiAgICAgIHRyYW5zZm9ybS1vcmlnaW46IHJpZ2h0O1xuXG4gICAgICAmIC5jb250ZXh0dWFsIHtcbiAgICAgICAgdHJhbnNmb3JtOiByb3RhdGUoLTkwZGVnKTtcbiAgICAgICAgdHJhbnNmb3JtLW9yaWdpbjogdG9wIHJpZ2h0O1xuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl19 */

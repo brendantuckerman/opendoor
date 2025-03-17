@@ -1,0 +1,92 @@
+/**
+ * @file
+ * Sticky Header Toggle Button.
+ *
+ * This button shows on the left hand side of the header (in LTR layouts), and
+ * toggles fixing the header to the top of the viewport.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.sticky-header-toggle {
+  display: none;
+
+  @media (--nav) {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: var(--content-left);
+    height: var(--sp6);
+    pointer-events: none;
+    opacity: 0;
+    border: 0;
+    outline: 0;
+    background-color: var(--color--primary-50);
+
+    &:focus {
+      cursor: pointer;
+      pointer-events: auto;
+      opacity: 1;
+      outline: solid 2px var(--color--white);
+      outline-offset: -4px;
+    }
+  }
+}
+
+body:not(.is-always-mobile-nav) .is-fixed .sticky-header-toggle {
+  @media (--nav) {
+    visibility: visible;
+  }
+}
+
+body.is-always-mobile-nav .sticky-header-toggle {
+  @media (--nav) {
+    visibility: hidden;
+  }
+}
+
+.sticky-header-toggle__icon {
+  --icon-bar-height: 3px;
+  --icon-bar-space: 7px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: var(--sp2);
+  height: calc((var(--icon-bar-height) * 3) + (var(--icon-bar-space) * 2));
+  /* Height = 3 bars + 2 spaces */
+  transition: opacity 0.2s;
+  pointer-events: none;
+  transform-style: preserve-3d;
+
+  & > span {
+    display: block;
+    width: 100%;
+    height: var(--icon-bar-height);
+    transition: transform 0.2s;
+    transform-origin: center;
+    background-color: var(--color--white);
+  }
+}
+
+.is-fixed .sticky-header-toggle {
+  cursor: pointer;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+[aria-checked="true"] .sticky-header-toggle__icon {
+  & > span:nth-child(1) {
+    transform: translateY(calc(var(--icon-bar-height) + var(--icon-bar-space))) rotate(-45deg);
+  }
+
+  & > span:nth-child(2) {
+    opacity: 0;
+  }
+
+  & > span:nth-child(3) {
+    transform: translateY(calc(0px - var(--icon-bar-height) - var(--icon-bar-space))) rotate(45deg);
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvaGVhZGVyLXN0aWNreS10b2dnbGUucGNzcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoiaGVhZGVyLXN0aWNreS10b2dnbGUucGNzcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBmaWxlXG4gKiBTdGlja3kgSGVhZGVyIFRvZ2dsZSBCdXR0b24uXG4gKlxuICogVGhpcyBidXR0b24gc2hvd3Mgb24gdGhlIGxlZnQgaGFuZCBzaWRlIG9mIHRoZSBoZWFkZXIgKGluIExUUiBsYXlvdXRzKSwgYW5kXG4gKiB0b2dnbGVzIGZpeGluZyB0aGUgaGVhZGVyIHRvIHRoZSB0b3Agb2YgdGhlIHZpZXdwb3J0LlxuICovXG5cbkBpbXBvcnQgXCIuLi9iYXNlL21lZGlhLXF1ZXJpZXMucGNzcy5jc3NcIjtcblxuLnN0aWNreS1oZWFkZXItdG9nZ2xlIHtcbiAgZGlzcGxheTogbm9uZTtcblxuICBAbWVkaWEgKC0tbmF2KSB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LXNocmluazogMDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIHdpZHRoOiB2YXIoLS1jb250ZW50LWxlZnQpO1xuICAgIGhlaWdodDogdmFyKC0tc3A2KTtcbiAgICBwb2ludGVyLWV2ZW50czogbm9uZTtcbiAgICBvcGFjaXR5OiAwO1xuICAgIGJvcmRlcjogMDtcbiAgICBvdXRsaW5lOiAwO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWNvbG9yLS1wcmltYXJ5LTUwKTtcblxuICAgICY6Zm9jdXMge1xuICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgcG9pbnRlci1ldmVudHM6IGF1dG87XG4gICAgICBvcGFjaXR5OiAxO1xuICAgICAgb3V0bGluZTogc29saWQgMnB4IHZhcigtLWNvbG9yLS13aGl0ZSk7XG4gICAgICBvdXRsaW5lLW9mZnNldDogLTRweDtcbiAgICB9XG4gIH1cbn1cblxuYm9keTpub3QoLmlzLWFsd2F5cy1tb2JpbGUtbmF2KSAuaXMtZml4ZWQgLnN0aWNreS1oZWFkZXItdG9nZ2xlIHtcbiAgQG1lZGlhICgtLW5hdikge1xuICAgIHZpc2liaWxpdHk6IHZpc2libGU7XG4gIH1cbn1cblxuYm9keS5pcy1hbHdheXMtbW9iaWxlLW5hdiAuc3RpY2t5LWhlYWRlci10b2dnbGUge1xuICBAbWVkaWEgKC0tbmF2KSB7XG4gICAgdmlzaWJpbGl0eTogaGlkZGVuO1xuICB9XG59XG5cbi5zdGlja3ktaGVhZGVyLXRvZ2dsZV9faWNvbiB7XG4gIC0taWNvbi1iYXItaGVpZ2h0OiAzcHg7XG4gIC0taWNvbi1iYXItc3BhY2U6IDdweDtcblxuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIHdpZHRoOiB2YXIoLS1zcDIpO1xuICBoZWlnaHQ6IGNhbGMoKHZhcigtLWljb24tYmFyLWhlaWdodCkgKiAzKSArICh2YXIoLS1pY29uLWJhci1zcGFjZSkgKiAyKSk7XG4gIC8qIEhlaWdodCA9IDMgYmFycyArIDIgc3BhY2VzICovXG4gIHRyYW5zaXRpb246IG9wYWNpdHkgMC4ycztcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG4gIHRyYW5zZm9ybS1zdHlsZTogcHJlc2VydmUtM2Q7XG5cbiAgJiA+IHNwYW4ge1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogdmFyKC0taWNvbi1iYXItaGVpZ2h0KTtcbiAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4ycztcbiAgICB0cmFuc2Zvcm0tb3JpZ2luOiBjZW50ZXI7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tY29sb3ItLXdoaXRlKTtcbiAgfVxufVxuXG4uaXMtZml4ZWQgLnN0aWNreS1oZWFkZXItdG9nZ2xlIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xuICBwb2ludGVyLWV2ZW50czogYXV0bztcbiAgb3BhY2l0eTogMTtcbn1cblxuW2FyaWEtY2hlY2tlZD1cInRydWVcIl0gLnN0aWNreS1oZWFkZXItdG9nZ2xlX19pY29uIHtcbiAgJiA+IHNwYW46bnRoLWNoaWxkKDEpIHtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoY2FsYyh2YXIoLS1pY29uLWJhci1oZWlnaHQpICsgdmFyKC0taWNvbi1iYXItc3BhY2UpKSkgcm90YXRlKC00NWRlZyk7XG4gIH1cblxuICAmID4gc3BhbjpudGgtY2hpbGQoMikge1xuICAgIG9wYWNpdHk6IDA7XG4gIH1cblxuICAmID4gc3BhbjpudGgtY2hpbGQoMykge1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWShjYWxjKDBweCAtIHZhcigtLWljb24tYmFyLWhlaWdodCkgLSB2YXIoLS1pY29uLWJhci1zcGFjZSkpKSByb3RhdGUoNDVkZWcpO1xuICB9XG59XG4iXX0= */

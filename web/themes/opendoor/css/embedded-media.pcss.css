@@ -1,0 +1,128 @@
+/**
+ * @file
+ * Embedded Media.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+figure {
+  background: var(--color--gray-100);
+}
+
+figcaption {
+  padding-block: var(--sp0-5);
+  padding-inline-start: var(--sp0-5);
+  padding-inline-end: var(--sp0-5);
+  color: var(--color-text-neutral-medium);
+  background: var(--color--gray-100);
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-style: italic;
+  line-height: var(--sp);
+
+  @media (--sm) {
+    padding-block: var(--sp);
+    padding-inline-start: var(--sp);
+    padding-inline-end: var(--sp);
+  }
+}
+
+.align-right {
+  float: none; /* Override core's align.module.css. */
+  max-width: 100%;
+  margin-block: var(--sp3);
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+
+  @media (--grid-md) {
+    float: right; /* LTR */
+    max-width: 50%;
+    margin-block-start: var(--sp);
+    margin-block-end: var(--sp);
+    margin-inline-start: var(--sp);
+    margin-inline-end: 0;
+
+    /**
+     * Chromium and Webkit do not yet support flow relative logical properties,
+     * such as float: inline-end. However, PostCSS Logical does not compile this
+     * value, so we accommodate by not using these.
+     *
+     * @see https://caniuse.com/mdn-css_properties_clear_flow_relative_values
+     * @see https://github.com/csstools/postcss-plugins/issues/632
+     */
+    &:dir(rtl) {
+      float: left;
+    }
+  }
+}
+
+/* Pull out of grid if nested in content narrow layout. */
+.layout--content-narrow .align-right,
+.layout--pass--content-narrow > * .align-right {
+  /* @todo this can be simplified. */
+  @media (--grid-md) {
+    margin-inline-end: calc(-1 * ((var(--grid-col-width) + var(--grid-gap))));
+  }
+
+  @media (--lg) {
+    margin-inline-end: calc(-2 * ((var(--grid-col-width) + var(--grid-gap))));
+  }
+
+  @media (--nav) {
+    margin-inline-end: calc(-3 * ((var(--grid-col-width) + var(--grid-gap))));
+  }
+
+  @media (--grid-max) {
+    margin-inline-end: calc(-3 * ((var(--grid-col-width) + var(--grid-gap))));
+  }
+}
+
+.align-left {
+  float: none; /* Override core's align.module.css. */
+  max-width: 100%;
+  margin-block-start: var(--sp3);
+  margin-block-end: var(--sp3);
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+
+  @media (--grid-md) {
+    float: left; /* LTR */
+    max-width: 50%;
+    margin-block-start: var(--sp);
+    margin-block-end: var(--sp);
+    margin-inline-start: 0;
+    margin-inline-end: var(--sp2); /* Extra right margins in case of aligning next to lists. */
+
+    /**
+     * Chromium and Webkit do not yet support flow relative logical properties,
+     * such as float: inline-end. However, PostCSS Logical does not compile this
+     * value, so we accommodate by not using these.
+     *
+     * @see https://caniuse.com/mdn-css_properties_clear_flow_relative_values
+     * @see https://github.com/csstools/postcss-plugins/issues/632
+     */
+    &:dir(rtl) {
+      float: right;
+    }
+  }
+}
+
+/* Pull out of grid if nested in content narrow layout. */
+.layout--content-narrow .align-left,
+.layout--pass--content-narrow > * .align-left {
+  @media (--grid-md) {
+    margin-inline-start: calc(-1 * ((var(--grid-col-width) + var(--grid-gap))));
+  }
+}
+
+.align-center img,
+.align-center video,
+.align-center audio {
+  margin-inline: auto;
+}
+
+.media-oembed-content {
+  display: block;
+  max-width: 100%;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvZW1iZWRkZWQtbWVkaWEucGNzcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoiZW1iZWRkZWQtbWVkaWEucGNzcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBmaWxlXG4gKiBFbWJlZGRlZCBNZWRpYS5cbiAqL1xuXG5AaW1wb3J0IFwiLi4vYmFzZS9tZWRpYS1xdWVyaWVzLnBjc3MuY3NzXCI7XG5cbmZpZ3VyZSB7XG4gIGJhY2tncm91bmQ6IHZhcigtLWNvbG9yLS1ncmF5LTEwMCk7XG59XG5cbmZpZ2NhcHRpb24ge1xuICBwYWRkaW5nLWJsb2NrOiB2YXIoLS1zcDAtNSk7XG4gIHBhZGRpbmctaW5saW5lLXN0YXJ0OiB2YXIoLS1zcDAtNSk7XG4gIHBhZGRpbmctaW5saW5lLWVuZDogdmFyKC0tc3AwLTUpO1xuICBjb2xvcjogdmFyKC0tY29sb3ItdGV4dC1uZXV0cmFsLW1lZGl1bSk7XG4gIGJhY2tncm91bmQ6IHZhcigtLWNvbG9yLS1ncmF5LTEwMCk7XG4gIGZvbnQtZmFtaWx5OiB2YXIoLS1mb250LXNlcmlmKTtcbiAgZm9udC1zaXplOiAxNHB4O1xuICBmb250LXN0eWxlOiBpdGFsaWM7XG4gIGxpbmUtaGVpZ2h0OiB2YXIoLS1zcCk7XG5cbiAgQG1lZGlhICgtLXNtKSB7XG4gICAgcGFkZGluZy1ibG9jazogdmFyKC0tc3ApO1xuICAgIHBhZGRpbmctaW5saW5lLXN0YXJ0OiB2YXIoLS1zcCk7XG4gICAgcGFkZGluZy1pbmxpbmUtZW5kOiB2YXIoLS1zcCk7XG4gIH1cbn1cblxuLmFsaWduLXJpZ2h0IHtcbiAgZmxvYXQ6IG5vbmU7IC8qIE92ZXJyaWRlIGNvcmUncyBhbGlnbi5tb2R1bGUuY3NzLiAqL1xuICBtYXgtd2lkdGg6IDEwMCU7XG4gIG1hcmdpbi1ibG9jazogdmFyKC0tc3AzKTtcbiAgbWFyZ2luLWlubGluZS1zdGFydDogMDtcbiAgbWFyZ2luLWlubGluZS1lbmQ6IDA7XG5cbiAgQG1lZGlhICgtLWdyaWQtbWQpIHtcbiAgICBmbG9hdDogcmlnaHQ7IC8qIExUUiAqL1xuICAgIG1heC13aWR0aDogNTAlO1xuICAgIG1hcmdpbi1ibG9jay1zdGFydDogdmFyKC0tc3ApO1xuICAgIG1hcmdpbi1ibG9jay1lbmQ6IHZhcigtLXNwKTtcbiAgICBtYXJnaW4taW5saW5lLXN0YXJ0OiB2YXIoLS1zcCk7XG4gICAgbWFyZ2luLWlubGluZS1lbmQ6IDA7XG5cbiAgICAvKipcbiAgICAgKiBDaHJvbWl1bSBhbmQgV2Via2l0IGRvIG5vdCB5ZXQgc3VwcG9ydCBmbG93IHJlbGF0aXZlIGxvZ2ljYWwgcHJvcGVydGllcyxcbiAgICAgKiBzdWNoIGFzIGZsb2F0OiBpbmxpbmUtZW5kLiBIb3dldmVyLCBQb3N0Q1NTIExvZ2ljYWwgZG9lcyBub3QgY29tcGlsZSB0aGlzXG4gICAgICogdmFsdWUsIHNvIHdlIGFjY29tbW9kYXRlIGJ5IG5vdCB1c2luZyB0aGVzZS5cbiAgICAgKlxuICAgICAqIEBzZWUgaHR0cHM6Ly9jYW5pdXNlLmNvbS9tZG4tY3NzX3Byb3BlcnRpZXNfY2xlYXJfZmxvd19yZWxhdGl2ZV92YWx1ZXNcbiAgICAgKiBAc2VlIGh0dHBzOi8vZ2l0aHViLmNvbS9jc3N0b29scy9wb3N0Y3NzLXBsdWdpbnMvaXNzdWVzLzYzMlxuICAgICAqL1xuICAgICY6ZGlyKHJ0bCkge1xuICAgICAgZmxvYXQ6IGxlZnQ7XG4gICAgfVxuICB9XG59XG5cbi8qIFB1bGwgb3V0IG9mIGdyaWQgaWYgbmVzdGVkIGluIGNvbnRlbnQgbmFycm93IGxheW91dC4gKi9cbi5sYXlvdXQtLWNvbnRlbnQtbmFycm93IC5hbGlnbi1yaWdodCxcbi5sYXlvdXQtLXBhc3MtLWNvbnRlbnQtbmFycm93ID4gKiAuYWxpZ24tcmlnaHQge1xuICAvKiBAdG9kbyB0aGlzIGNhbiBiZSBzaW1wbGlmaWVkLiAqL1xuICBAbWVkaWEgKC0tZ3JpZC1tZCkge1xuICAgIG1hcmdpbi1pbmxpbmUtZW5kOiBjYWxjKC0xICogKCh2YXIoLS1ncmlkLWNvbC13aWR0aCkgKyB2YXIoLS1ncmlkLWdhcCkpKSk7XG4gIH1cblxuICBAbWVkaWEgKC0tbGcpIHtcbiAgICBtYXJnaW4taW5saW5lLWVuZDogY2FsYygtMiAqICgodmFyKC0tZ3JpZC1jb2wtd2lkdGgpICsgdmFyKC0tZ3JpZC1nYXApKSkpO1xuICB9XG5cbiAgQG1lZGlhICgtLW5hdikge1xuICAgIG1hcmdpbi1pbmxpbmUtZW5kOiBjYWxjKC0zICogKCh2YXIoLS1ncmlkLWNvbC13aWR0aCkgKyB2YXIoLS1ncmlkLWdhcCkpKSk7XG4gIH1cblxuICBAbWVkaWEgKC0tZ3JpZC1tYXgpIHtcbiAgICBtYXJnaW4taW5saW5lLWVuZDogY2FsYygtMyAqICgodmFyKC0tZ3JpZC1jb2wtd2lkdGgpICsgdmFyKC0tZ3JpZC1nYXApKSkpO1xuICB9XG59XG5cbi5hbGlnbi1sZWZ0IHtcbiAgZmxvYXQ6IG5vbmU7IC8qIE92ZXJyaWRlIGNvcmUncyBhbGlnbi5tb2R1bGUuY3NzLiAqL1xuICBtYXgtd2lkdGg6IDEwMCU7XG4gIG1hcmdpbi1ibG9jay1zdGFydDogdmFyKC0tc3AzKTtcbiAgbWFyZ2luLWJsb2NrLWVuZDogdmFyKC0tc3AzKTtcbiAgbWFyZ2luLWlubGluZS1zdGFydDogMDtcbiAgbWFyZ2luLWlubGluZS1lbmQ6IDA7XG5cbiAgQG1lZGlhICgtLWdyaWQtbWQpIHtcbiAgICBmbG9hdDogbGVmdDsgLyogTFRSICovXG4gICAgbWF4LXdpZHRoOiA1MCU7XG4gICAgbWFyZ2luLWJsb2NrLXN0YXJ0OiB2YXIoLS1zcCk7XG4gICAgbWFyZ2luLWJsb2NrLWVuZDogdmFyKC0tc3ApO1xuICAgIG1hcmdpbi1pbmxpbmUtc3RhcnQ6IDA7XG4gICAgbWFyZ2luLWlubGluZS1lbmQ6IHZhcigtLXNwMik7IC8qIEV4dHJhIHJpZ2h0IG1hcmdpbnMgaW4gY2FzZSBvZiBhbGlnbmluZyBuZXh0IHRvIGxpc3RzLiAqL1xuXG4gICAgLyoqXG4gICAgICogQ2hyb21pdW0gYW5kIFdlYmtpdCBkbyBub3QgeWV0IHN1cHBvcnQgZmxvdyByZWxhdGl2ZSBsb2dpY2FsIHByb3BlcnRpZXMsXG4gICAgICogc3VjaCBhcyBmbG9hdDogaW5saW5lLWVuZC4gSG93ZXZlciwgUG9zdENTUyBMb2dpY2FsIGRvZXMgbm90IGNvbXBpbGUgdGhpc1xuICAgICAqIHZhbHVlLCBzbyB3ZSBhY2NvbW1vZGF0ZSBieSBub3QgdXNpbmcgdGhlc2UuXG4gICAgICpcbiAgICAgKiBAc2VlIGh0dHBzOi8vY2FuaXVzZS5jb20vbWRuLWNzc19wcm9wZXJ0aWVzX2NsZWFyX2Zsb3dfcmVsYXRpdmVfdmFsdWVzXG4gICAgICogQHNlZSBodHRwczovL2dpdGh1Yi5jb20vY3NzdG9vbHMvcG9zdGNzcy1wbHVnaW5zL2lzc3Vlcy82MzJcbiAgICAgKi9cbiAgICAmOmRpcihydGwpIHtcbiAgICAgIGZsb2F0OiByaWdodDtcbiAgICB9XG4gIH1cbn1cblxuLyogUHVsbCBvdXQgb2YgZ3JpZCBpZiBuZXN0ZWQgaW4gY29udGVudCBuYXJyb3cgbGF5b3V0LiAqL1xuLmxheW91dC0tY29udGVudC1uYXJyb3cgLmFsaWduLWxlZnQsXG4ubGF5b3V0LS1wYXNzLS1jb250ZW50LW5hcnJvdyA+ICogLmFsaWduLWxlZnQge1xuICBAbWVkaWEgKC0tZ3JpZC1tZCkge1xuICAgIG1hcmdpbi1pbmxpbmUtc3RhcnQ6IGNhbGMoLTEgKiAoKHZhcigtLWdyaWQtY29sLXdpZHRoKSArIHZhcigtLWdyaWQtZ2FwKSkpKTtcbiAgfVxufVxuXG4uYWxpZ24tY2VudGVyIGltZyxcbi5hbGlnbi1jZW50ZXIgdmlkZW8sXG4uYWxpZ24tY2VudGVyIGF1ZGlvIHtcbiAgbWFyZ2luLWlubGluZTogYXV0bztcbn1cblxuLm1lZGlhLW9lbWJlZC1jb250ZW50IHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1heC13aWR0aDogMTAwJTtcbn1cbiJdfQ== */

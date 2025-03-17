@@ -1,0 +1,30 @@
+/**
+ * @file
+ * Header Mobile Buttons.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.mobile-buttons {
+  margin-block-start: var(--sp0-5);
+  margin-inline-start: auto;
+
+  @media (--sm) {
+    margin-block-start: var(--sp2);
+  }
+
+  @media (--md) {
+    margin-block-start: var(--sp4);
+  }
+
+  @media (--nav) {
+    margin-block-start: var(--sp6);
+  }
+}
+
+@media (--nav) {
+  body:not(.is-always-mobile-nav) .mobile-buttons {
+    display: none;
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvaGVhZGVyLWJ1dHRvbnMtbW9iaWxlLnBjc3MuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6ImhlYWRlci1idXR0b25zLW1vYmlsZS5wY3NzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGZpbGVcbiAqIEhlYWRlciBNb2JpbGUgQnV0dG9ucy5cbiAqL1xuXG5AaW1wb3J0IFwiLi4vYmFzZS9tZWRpYS1xdWVyaWVzLnBjc3MuY3NzXCI7XG5cbi5tb2JpbGUtYnV0dG9ucyB7XG4gIG1hcmdpbi1ibG9jay1zdGFydDogdmFyKC0tc3AwLTUpO1xuICBtYXJnaW4taW5saW5lLXN0YXJ0OiBhdXRvO1xuXG4gIEBtZWRpYSAoLS1zbSkge1xuICAgIG1hcmdpbi1ibG9jay1zdGFydDogdmFyKC0tc3AyKTtcbiAgfVxuXG4gIEBtZWRpYSAoLS1tZCkge1xuICAgIG1hcmdpbi1ibG9jay1zdGFydDogdmFyKC0tc3A0KTtcbiAgfVxuXG4gIEBtZWRpYSAoLS1uYXYpIHtcbiAgICBtYXJnaW4tYmxvY2stc3RhcnQ6IHZhcigtLXNwNik7XG4gIH1cbn1cblxuQG1lZGlhICgtLW5hdikge1xuICBib2R5Om5vdCguaXMtYWx3YXlzLW1vYmlsZS1uYXYpIC5tb2JpbGUtYnV0dG9ucyB7XG4gICAgZGlzcGxheTogbm9uZTtcbiAgfVxufVxuIl19 */

@@ -1,0 +1,47 @@
+/*
+ * @file
+ * Provides the layout styles for two-column layout section.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.layout--twocol-section {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: var(--layout-twocol-grid);
+
+  & > .layout__region--first {
+    grid-column: var(--layout-twocol-grid__first);
+  }
+
+  & > .layout__region--second {
+    grid-column: var(--layout-twocol-grid__second);
+  }
+}
+
+@media (--md) {
+  .layout--twocol-section--50-50 {
+    --layout-twocol-grid: repeat(2, minmax(0, 1fr));
+  }
+
+  .layout--twocol-section--33-67 {
+    --layout-twocol-grid: repeat(3, minmax(0, 1fr));
+    --layout-twocol-grid__second: span 2;
+  }
+
+  .layout--twocol-section--67-33 {
+    --layout-twocol-grid: repeat(3, minmax(0, 1fr));
+    --layout-twocol-grid__first: span 2;
+  }
+
+  .layout--twocol-section--25-75 {
+    --layout-twocol-grid: repeat(4, minmax(0, 1fr));
+    --layout-twocol-grid__second: span 3;
+  }
+
+  .layout--twocol-section--75-25 {
+    --layout-twocol-grid: repeat(4, minmax(0, 1fr));
+    --layout-twocol-grid__first: span 3;
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxheW91dC9sYXlvdXQtYnVpbGRlci10d29jb2wtc2VjdGlvbi5wY3NzLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJsYXlvdXQtYnVpbGRlci10d29jb2wtc2VjdGlvbi5wY3NzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG4gKiBAZmlsZVxuICogUHJvdmlkZXMgdGhlIGxheW91dCBzdHlsZXMgZm9yIHR3by1jb2x1bW4gbGF5b3V0IHNlY3Rpb24uXG4gKi9cblxuQGltcG9ydCBcIi4uL2Jhc2UvbWVkaWEtcXVlcmllcy5wY3NzLmNzc1wiO1xuXG4ubGF5b3V0LS10d29jb2wtc2VjdGlvbiB7XG4gIGRpc3BsYXk6IGdyaWQ7XG4gIGdhcDogdmFyKC0tZ3JpZC1nYXApO1xuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHZhcigtLWxheW91dC10d29jb2wtZ3JpZCk7XG5cbiAgJiA+IC5sYXlvdXRfX3JlZ2lvbi0tZmlyc3Qge1xuICAgIGdyaWQtY29sdW1uOiB2YXIoLS1sYXlvdXQtdHdvY29sLWdyaWRfX2ZpcnN0KTtcbiAgfVxuXG4gICYgPiAubGF5b3V0X19yZWdpb24tLXNlY29uZCB7XG4gICAgZ3JpZC1jb2x1bW46IHZhcigtLWxheW91dC10d29jb2wtZ3JpZF9fc2Vjb25kKTtcbiAgfVxufVxuXG5AbWVkaWEgKC0tbWQpIHtcbiAgLmxheW91dC0tdHdvY29sLXNlY3Rpb24tLTUwLTUwIHtcbiAgICAtLWxheW91dC10d29jb2wtZ3JpZDogcmVwZWF0KDIsIG1pbm1heCgwLCAxZnIpKTtcbiAgfVxuXG4gIC5sYXlvdXQtLXR3b2NvbC1zZWN0aW9uLS0zMy02NyB7XG4gICAgLS1sYXlvdXQtdHdvY29sLWdyaWQ6IHJlcGVhdCgzLCBtaW5tYXgoMCwgMWZyKSk7XG4gICAgLS1sYXlvdXQtdHdvY29sLWdyaWRfX3NlY29uZDogc3BhbiAyO1xuICB9XG5cbiAgLmxheW91dC0tdHdvY29sLXNlY3Rpb24tLTY3LTMzIHtcbiAgICAtLWxheW91dC10d29jb2wtZ3JpZDogcmVwZWF0KDMsIG1pbm1heCgwLCAxZnIpKTtcbiAgICAtLWxheW91dC10d29jb2wtZ3JpZF9fZmlyc3Q6IHNwYW4gMjtcbiAgfVxuXG4gIC5sYXlvdXQtLXR3b2NvbC1zZWN0aW9uLS0yNS03NSB7XG4gICAgLS1sYXlvdXQtdHdvY29sLWdyaWQ6IHJlcGVhdCg0LCBtaW5tYXgoMCwgMWZyKSk7XG4gICAgLS1sYXlvdXQtdHdvY29sLWdyaWRfX3NlY29uZDogc3BhbiAzO1xuICB9XG5cbiAgLmxheW91dC0tdHdvY29sLXNlY3Rpb24tLTc1LTI1IHtcbiAgICAtLWxheW91dC10d29jb2wtZ3JpZDogcmVwZWF0KDQsIG1pbm1heCgwLCAxZnIpKTtcbiAgICAtLWxheW91dC10d29jb2wtZ3JpZF9fZmlyc3Q6IHNwYW4gMztcbiAgfVxufVxuIl19 */

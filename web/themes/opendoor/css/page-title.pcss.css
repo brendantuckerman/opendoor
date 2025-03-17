@@ -1,0 +1,15 @@
+/**
+ * @file
+ * Page title.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.page-title {
+  /*
+    Necessary to properly display the star icon from core's shortcut
+    module.
+  */
+  display: inline;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvcGFnZS10aXRsZS5wY3NzLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJwYWdlLXRpdGxlLnBjc3MuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAZmlsZVxuICogUGFnZSB0aXRsZS5cbiAqL1xuXG5AaW1wb3J0IFwiLi4vYmFzZS9tZWRpYS1xdWVyaWVzLnBjc3MuY3NzXCI7XG5cbi5wYWdlLXRpdGxlIHtcbiAgLypcbiAgICBOZWNlc3NhcnkgdG8gcHJvcGVybHkgZGlzcGxheSB0aGUgc3RhciBpY29uIGZyb20gY29yZSdzIHNob3J0Y3V0XG4gICAgbW9kdWxlLlxuICAqL1xuICBkaXNwbGF5OiBpbmxpbmU7XG59XG4iXX0= */

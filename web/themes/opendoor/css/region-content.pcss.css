@@ -1,0 +1,19 @@
+/**
+ * @file
+ * Content region layout.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.region--content {
+  margin-block-end: var(--sp);
+
+  @media (--md) {
+    margin-block-end: var(--sp2);
+  }
+
+  @media (--lg) {
+    margin-block-end: var(--sp3);
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxheW91dC9yZWdpb24tY29udGVudC5wY3NzLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJyZWdpb24tY29udGVudC5wY3NzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGZpbGVcbiAqIENvbnRlbnQgcmVnaW9uIGxheW91dC5cbiAqL1xuXG5AaW1wb3J0IFwiLi4vYmFzZS9tZWRpYS1xdWVyaWVzLnBjc3MuY3NzXCI7XG5cbi5yZWdpb24tLWNvbnRlbnQge1xuICBtYXJnaW4tYmxvY2stZW5kOiB2YXIoLS1zcCk7XG5cbiAgQG1lZGlhICgtLW1kKSB7XG4gICAgbWFyZ2luLWJsb2NrLWVuZDogdmFyKC0tc3AyKTtcbiAgfVxuXG4gIEBtZWRpYSAoLS1sZykge1xuICAgIG1hcmdpbi1ibG9jay1lbmQ6IHZhcigtLXNwMyk7XG4gIH1cbn1cbiJdfQ== */

@@ -1,0 +1,47 @@
+/**
+ * @file
+ * Wide content
+ *
+ * This component breaks out of the layout-content-narrow grid layout using a
+ * combination of carefully calculated negative margins and widths. It is used
+ * on the article's default image field.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.wide-content {
+  margin-block-start: var(--sp0-5);
+  margin-block-end: var(--sp2);
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+
+  @media (--grid-md) {
+    width: calc(var(--grid-col-count) * var(--grid-col-width) + var(--grid-gap-count) * var(--grid-gap));
+    margin-block: var(--sp2) var(--sp4);
+    margin-inline-start: calc(-1 * ((var(--grid-col-width) + var(--grid-gap))));
+  }
+
+  @media (--lg) {
+    width: calc(12 * var(--grid-col-width) + 11 * var(--grid-gap));
+    margin-inline-start: calc(-1 * (var(--grid-col-width) + var(--grid-gap)));
+  }
+}
+
+/* Ensure that image doesn't overlap sidebar. */
+.sidebar-grid .wide-content {
+  @media (--lg) {
+    width: calc(9 * var(--grid-col-width) + 8 * var(--grid-gap));
+  }
+
+  @media (--xl) {
+    width: calc(10 * var(--grid-col-width) + 9 * var(--grid-gap));
+  }
+}
+
+/* Ensure that image doesn't overlap layout builder sections when editing layouts. */
+.layout-builder .wide-content,
+.region--hero .wide-content {
+  max-width: 100%;
+  margin-inline: 0;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvd2lkZS1jb250ZW50LnBjc3MuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6IndpZGUtY29udGVudC5wY3NzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGZpbGVcbiAqIFdpZGUgY29udGVudFxuICpcbiAqIFRoaXMgY29tcG9uZW50IGJyZWFrcyBvdXQgb2YgdGhlIGxheW91dC1jb250ZW50LW5hcnJvdyBncmlkIGxheW91dCB1c2luZyBhXG4gKiBjb21iaW5hdGlvbiBvZiBjYXJlZnVsbHkgY2FsY3VsYXRlZCBuZWdhdGl2ZSBtYXJnaW5zIGFuZCB3aWR0aHMuIEl0IGlzIHVzZWRcbiAqIG9uIHRoZSBhcnRpY2xlJ3MgZGVmYXVsdCBpbWFnZSBmaWVsZC5cbiAqL1xuXG5AaW1wb3J0IFwiLi4vYmFzZS9tZWRpYS1xdWVyaWVzLnBjc3MuY3NzXCI7XG5cbi53aWRlLWNvbnRlbnQge1xuICBtYXJnaW4tYmxvY2stc3RhcnQ6IHZhcigtLXNwMC01KTtcbiAgbWFyZ2luLWJsb2NrLWVuZDogdmFyKC0tc3AyKTtcbiAgbWFyZ2luLWlubGluZS1zdGFydDogMDtcbiAgbWFyZ2luLWlubGluZS1lbmQ6IDA7XG5cbiAgQG1lZGlhICgtLWdyaWQtbWQpIHtcbiAgICB3aWR0aDogY2FsYyh2YXIoLS1ncmlkLWNvbC1jb3VudCkgKiB2YXIoLS1ncmlkLWNvbC13aWR0aCkgKyB2YXIoLS1ncmlkLWdhcC1jb3VudCkgKiB2YXIoLS1ncmlkLWdhcCkpO1xuICAgIG1hcmdpbi1ibG9jazogdmFyKC0tc3AyKSB2YXIoLS1zcDQpO1xuICAgIG1hcmdpbi1pbmxpbmUtc3RhcnQ6IGNhbGMoLTEgKiAoKHZhcigtLWdyaWQtY29sLXdpZHRoKSArIHZhcigtLWdyaWQtZ2FwKSkpKTtcbiAgfVxuXG4gIEBtZWRpYSAoLS1sZykge1xuICAgIHdpZHRoOiBjYWxjKDEyICogdmFyKC0tZ3JpZC1jb2wtd2lkdGgpICsgMTEgKiB2YXIoLS1ncmlkLWdhcCkpO1xuICAgIG1hcmdpbi1pbmxpbmUtc3RhcnQ6IGNhbGMoLTEgKiAodmFyKC0tZ3JpZC1jb2wtd2lkdGgpICsgdmFyKC0tZ3JpZC1nYXApKSk7XG4gIH1cbn1cblxuLyogRW5zdXJlIHRoYXQgaW1hZ2UgZG9lc24ndCBvdmVybGFwIHNpZGViYXIuICovXG4uc2lkZWJhci1ncmlkIC53aWRlLWNvbnRlbnQge1xuICBAbWVkaWEgKC0tbGcpIHtcbiAgICB3aWR0aDogY2FsYyg5ICogdmFyKC0tZ3JpZC1jb2wtd2lkdGgpICsgOCAqIHZhcigtLWdyaWQtZ2FwKSk7XG4gIH1cblxuICBAbWVkaWEgKC0teGwpIHtcbiAgICB3aWR0aDogY2FsYygxMCAqIHZhcigtLWdyaWQtY29sLXdpZHRoKSArIDkgKiB2YXIoLS1ncmlkLWdhcCkpO1xuICB9XG59XG5cbi8qIEVuc3VyZSB0aGF0IGltYWdlIGRvZXNuJ3Qgb3ZlcmxhcCBsYXlvdXQgYnVpbGRlciBzZWN0aW9ucyB3aGVuIGVkaXRpbmcgbGF5b3V0cy4gKi9cbi5sYXlvdXQtYnVpbGRlciAud2lkZS1jb250ZW50LFxuLnJlZ2lvbi0taGVybyAud2lkZS1jb250ZW50IHtcbiAgbWF4LXdpZHRoOiAxMDAlO1xuICBtYXJnaW4taW5saW5lOiAwO1xufVxuIl19 */

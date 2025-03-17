@@ -1,0 +1,9 @@
+/**
+ * @file
+ * Visual styles for fields.
+ */
+
+.block-layout-builder:not(:last-child) .field {
+  margin-block-end: var(--sp2);
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvbGF5b3V0LWZpZWxkLnBjc3MuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6ImxheW91dC1maWVsZC5wY3NzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGZpbGVcbiAqIFZpc3VhbCBzdHlsZXMgZm9yIGZpZWxkcy5cbiAqL1xuXG4uYmxvY2stbGF5b3V0LWJ1aWxkZXI6bm90KDpsYXN0LWNoaWxkKSAuZmllbGQge1xuICBtYXJnaW4tYmxvY2stZW5kOiB2YXIoLS1zcDIpO1xufVxuIl19 */

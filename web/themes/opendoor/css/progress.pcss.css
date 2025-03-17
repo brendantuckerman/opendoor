@@ -1,0 +1,23 @@
+/**
+ * @file
+ * Progress bar specific styles.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.progress__track {
+  overflow: hidden;
+  height: var(--sp);
+  border: 1px solid var(--color--primary-40);
+  border-radius: var(--border-radius);
+}
+
+.progress__bar {
+  height: var(--sp);
+  background-color: var(--color--primary-40);
+}
+
+.progress__percentage {
+  margin-inline-start: 1rem;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvcHJvZ3Jlc3MucGNzcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoicHJvZ3Jlc3MucGNzcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBmaWxlXG4gKiBQcm9ncmVzcyBiYXIgc3BlY2lmaWMgc3R5bGVzLlxuICovXG5cbkBpbXBvcnQgXCIuLi9iYXNlL21lZGlhLXF1ZXJpZXMucGNzcy5jc3NcIjtcblxuLnByb2dyZXNzX190cmFjayB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGhlaWdodDogdmFyKC0tc3ApO1xuICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1jb2xvci0tcHJpbWFyeS00MCk7XG4gIGJvcmRlci1yYWRpdXM6IHZhcigtLWJvcmRlci1yYWRpdXMpO1xufVxuXG4ucHJvZ3Jlc3NfX2JhciB7XG4gIGhlaWdodDogdmFyKC0tc3ApO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1jb2xvci0tcHJpbWFyeS00MCk7XG59XG5cbi5wcm9ncmVzc19fcGVyY2VudGFnZSB7XG4gIG1hcmdpbi1pbmxpbmUtc3RhcnQ6IDFyZW07XG59XG4iXX0= */

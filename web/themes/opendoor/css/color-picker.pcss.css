@@ -1,0 +1,12 @@
+/**
+ * @file
+ * Color picker styles. These appear within theme settings when selecting a custom color.
+ */
+
+[data-drupal-selector="opendoor-color-picker"] {
+  & input[type="color"] {
+    margin-left: 13px;
+    vertical-align: bottom;
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvY29sb3ItcGlja2VyLnBjc3MuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6ImNvbG9yLXBpY2tlci5wY3NzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGZpbGVcbiAqIENvbG9yIHBpY2tlciBzdHlsZXMuIFRoZXNlIGFwcGVhciB3aXRoaW4gdGhlbWUgc2V0dGluZ3Mgd2hlbiBzZWxlY3RpbmcgYSBjdXN0b20gY29sb3IuXG4gKi9cblxuW2RhdGEtZHJ1cGFsLXNlbGVjdG9yPVwib3BlbmRvb3ItY29sb3ItcGlja2VyXCJdIHtcbiAgJiBpbnB1dFt0eXBlPVwiY29sb3JcIl0ge1xuICAgIG1hcmdpbi1sZWZ0OiAxM3B4O1xuICAgIHZlcnRpY2FsLWFsaWduOiBib3R0b207XG4gIH1cbn1cbiJdfQ== */

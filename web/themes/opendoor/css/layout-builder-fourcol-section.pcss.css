@@ -1,0 +1,27 @@
+/*
+ * @file
+ * Provides the layout styles for four-column layout section.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.layout--fourcol-section {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: var(--layout-fourcol-grid);
+}
+
+/* Two column layout. */
+@media (--md) {
+  .layout--fourcol-section {
+    --layout-fourcol-grid: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Four column layout. */
+@media (--lg) {
+  .layout--fourcol-section {
+    --layout-fourcol-grid: repeat(4, minmax(0, 1fr));
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxheW91dC9sYXlvdXQtYnVpbGRlci1mb3VyY29sLXNlY3Rpb24ucGNzcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoibGF5b3V0LWJ1aWxkZXItZm91cmNvbC1zZWN0aW9uLnBjc3MuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqIEBmaWxlXG4gKiBQcm92aWRlcyB0aGUgbGF5b3V0IHN0eWxlcyBmb3IgZm91ci1jb2x1bW4gbGF5b3V0IHNlY3Rpb24uXG4gKi9cblxuQGltcG9ydCBcIi4uL2Jhc2UvbWVkaWEtcXVlcmllcy5wY3NzLmNzc1wiO1xuXG4ubGF5b3V0LS1mb3VyY29sLXNlY3Rpb24ge1xuICBkaXNwbGF5OiBncmlkO1xuICBnYXA6IHZhcigtLWdyaWQtZ2FwKTtcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiB2YXIoLS1sYXlvdXQtZm91cmNvbC1ncmlkKTtcbn1cblxuLyogVHdvIGNvbHVtbiBsYXlvdXQuICovXG5AbWVkaWEgKC0tbWQpIHtcbiAgLmxheW91dC0tZm91cmNvbC1zZWN0aW9uIHtcbiAgICAtLWxheW91dC1mb3VyY29sLWdyaWQ6IHJlcGVhdCgyLCBtaW5tYXgoMCwgMWZyKSk7XG4gIH1cbn1cblxuLyogRm91ciBjb2x1bW4gbGF5b3V0LiAqL1xuQG1lZGlhICgtLWxnKSB7XG4gIC5sYXlvdXQtLWZvdXJjb2wtc2VjdGlvbiB7XG4gICAgLS1sYXlvdXQtZm91cmNvbC1ncmlkOiByZXBlYXQoNCwgbWlubWF4KDAsIDFmcikpO1xuICB9XG59XG4iXX0= */

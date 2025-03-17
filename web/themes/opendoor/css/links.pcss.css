@@ -1,0 +1,23 @@
+/**
+ * @file
+ * Links component.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.links.inline {
+  margin-inline-start: 0;
+  padding-block: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  list-style: none;
+
+  & > * {
+    display: inline;
+
+    &:not(:last-child) {
+      padding-inline-end: 1em;
+    }
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvbGlua3MucGNzcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoibGlua3MucGNzcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBmaWxlXG4gKiBMaW5rcyBjb21wb25lbnQuXG4gKi9cblxuQGltcG9ydCBcIi4uL2Jhc2UvbWVkaWEtcXVlcmllcy5wY3NzLmNzc1wiO1xuXG4ubGlua3MuaW5saW5lIHtcbiAgbWFyZ2luLWlubGluZS1zdGFydDogMDtcbiAgcGFkZGluZy1ibG9jazogMDtcbiAgcGFkZGluZy1pbmxpbmUtc3RhcnQ6IDA7XG4gIHBhZGRpbmctaW5saW5lLWVuZDogMDtcbiAgbGlzdC1zdHlsZTogbm9uZTtcblxuICAmID4gKiB7XG4gICAgZGlzcGxheTogaW5saW5lO1xuXG4gICAgJjpub3QoOmxhc3QtY2hpbGQpIHtcbiAgICAgIHBhZGRpbmctaW5saW5lLWVuZDogMWVtO1xuICAgIH1cbiAgfVxufVxuIl19 */

@@ -96,5 +96,9 @@
                 "      composer remove drupal/core-project-message"
             ]
         }
+    },
+    "require-dev": {
+        "drupal/devel": "^5.3",
+        "kint-php/kint": "^6.0"
     }
 }

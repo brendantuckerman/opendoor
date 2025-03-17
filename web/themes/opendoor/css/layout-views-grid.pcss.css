@@ -1,0 +1,44 @@
+/**
+ * @file
+ * Responsive styles for views grid horizontal layout.
+ *
+ * This creates the correct count of columns and automatically resizes the
+ * grid-items to fit into it. The grid-items will flow onto the next row when
+ * they reach the --views-grid-item--min-width value.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.views-view-grid {
+  --views-grid--layout-gap: var(--sp);
+  --views-grid--column-count: 4; /* Will be overridden by an inline style. */
+  --views-grid-item--min-width: 100px;
+}
+
+.views-view-grid--horizontal {
+  /**
+   * Calculated values.
+   */
+  --views-grid--gap-count: calc(var(--views-grid--column-count) - 1);
+  --views-grid--total-gap-width: calc(var(--views-grid--gap-count) * var(--views-grid--layout-gap));
+  --views-grid-item--max-width: calc((100% - var(--views-grid--total-gap-width)) / var(--views-grid--column-count));
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(max(var(--views-grid-item--min-width), var(--views-grid-item--max-width)), 1fr));
+  grid-gap: var(--views-grid--layout-gap);
+}
+
+.views-view-grid--vertical {
+  margin-block-end: calc(-1 * var(--views-grid--layout-gap)); /* Offset the bottom row's padding. */
+  column-width: var(--views-grid-item--min-width);
+  column-count: var(--views-grid--column-count);
+  column-gap: var(--views-grid--layout-gap);
+
+  & .views-view-grid__item {
+    & > * {
+      padding-block-end: var(--views-grid--layout-gap);
+      break-inside: avoid;
+    }
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxheW91dC9sYXlvdXQtdmlld3MtZ3JpZC5wY3NzLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJsYXlvdXQtdmlld3MtZ3JpZC5wY3NzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGZpbGVcbiAqIFJlc3BvbnNpdmUgc3R5bGVzIGZvciB2aWV3cyBncmlkIGhvcml6b250YWwgbGF5b3V0LlxuICpcbiAqIFRoaXMgY3JlYXRlcyB0aGUgY29ycmVjdCBjb3VudCBvZiBjb2x1bW5zIGFuZCBhdXRvbWF0aWNhbGx5IHJlc2l6ZXMgdGhlXG4gKiBncmlkLWl0ZW1zIHRvIGZpdCBpbnRvIGl0LiBUaGUgZ3JpZC1pdGVtcyB3aWxsIGZsb3cgb250byB0aGUgbmV4dCByb3cgd2hlblxuICogdGhleSByZWFjaCB0aGUgLS12aWV3cy1ncmlkLWl0ZW0tLW1pbi13aWR0aCB2YWx1ZS5cbiAqL1xuXG5AaW1wb3J0IFwiLi4vYmFzZS9tZWRpYS1xdWVyaWVzLnBjc3MuY3NzXCI7XG5cbi52aWV3cy12aWV3LWdyaWQge1xuICAtLXZpZXdzLWdyaWQtLWxheW91dC1nYXA6IHZhcigtLXNwKTtcbiAgLS12aWV3cy1ncmlkLS1jb2x1bW4tY291bnQ6IDQ7IC8qIFdpbGwgYmUgb3ZlcnJpZGRlbiBieSBhbiBpbmxpbmUgc3R5bGUuICovXG4gIC0tdmlld3MtZ3JpZC1pdGVtLS1taW4td2lkdGg6IDEwMHB4O1xufVxuXG4udmlld3Mtdmlldy1ncmlkLS1ob3Jpem9udGFsIHtcbiAgLyoqXG4gICAqIENhbGN1bGF0ZWQgdmFsdWVzLlxuICAgKi9cbiAgLS12aWV3cy1ncmlkLS1nYXAtY291bnQ6IGNhbGModmFyKC0tdmlld3MtZ3JpZC0tY29sdW1uLWNvdW50KSAtIDEpO1xuICAtLXZpZXdzLWdyaWQtLXRvdGFsLWdhcC13aWR0aDogY2FsYyh2YXIoLS12aWV3cy1ncmlkLS1nYXAtY291bnQpICogdmFyKC0tdmlld3MtZ3JpZC0tbGF5b3V0LWdhcCkpO1xuICAtLXZpZXdzLWdyaWQtaXRlbS0tbWF4LXdpZHRoOiBjYWxjKCgxMDAlIC0gdmFyKC0tdmlld3MtZ3JpZC0tdG90YWwtZ2FwLXdpZHRoKSkgLyB2YXIoLS12aWV3cy1ncmlkLS1jb2x1bW4tY291bnQpKTtcblxuICBkaXNwbGF5OiBncmlkO1xuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdChhdXRvLWZpbGwsIG1pbm1heChtYXgodmFyKC0tdmlld3MtZ3JpZC1pdGVtLS1taW4td2lkdGgpLCB2YXIoLS12aWV3cy1ncmlkLWl0ZW0tLW1heC13aWR0aCkpLCAxZnIpKTtcbiAgZ3JpZC1nYXA6IHZhcigtLXZpZXdzLWdyaWQtLWxheW91dC1nYXApO1xufVxuXG4udmlld3Mtdmlldy1ncmlkLS12ZXJ0aWNhbCB7XG4gIG1hcmdpbi1ibG9jay1lbmQ6IGNhbGMoLTEgKiB2YXIoLS12aWV3cy1ncmlkLS1sYXlvdXQtZ2FwKSk7IC8qIE9mZnNldCB0aGUgYm90dG9tIHJvdydzIHBhZGRpbmcuICovXG4gIGNvbHVtbi13aWR0aDogdmFyKC0tdmlld3MtZ3JpZC1pdGVtLS1taW4td2lkdGgpO1xuICBjb2x1bW4tY291bnQ6IHZhcigtLXZpZXdzLWdyaWQtLWNvbHVtbi1jb3VudCk7XG4gIGNvbHVtbi1nYXA6IHZhcigtLXZpZXdzLWdyaWQtLWxheW91dC1nYXApO1xuXG4gICYgLnZpZXdzLXZpZXctZ3JpZF9faXRlbSB7XG4gICAgJiA+ICoge1xuICAgICAgcGFkZGluZy1ibG9jay1lbmQ6IHZhcigtLXZpZXdzLWdyaWQtLWxheW91dC1nYXApO1xuICAgICAgYnJlYWstaW5zaWRlOiBhdm9pZDtcbiAgICB9XG4gIH1cbn1cbiJdfQ== */

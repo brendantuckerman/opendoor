@@ -1,0 +1,117 @@
+/**
+ * @file
+ * Secondary navigation styling.
+ */
+
+@import "../../base/media-queries.pcss.css";
+
+.secondary-nav {
+  letter-spacing: 0.02em;
+  font-size: var(--font-size-s);
+  font-weight: 600;
+}
+
+.secondary-nav__menu {
+  display: flex;
+  align-items: center;
+  margin-block: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-block: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  list-style: none;
+}
+
+.secondary-nav__menu-item {
+  /* Parent element is set to flex-basis: 0. We
+   * don't want text to wrap unless it goes over a
+   * certain arbitrary width.
+   */
+
+  /* @todo should this be scoped to desktop nav? */
+  width: max-content;
+  max-width: 200px;
+
+  &:not(:last-child) {
+    margin-inline-end: var(--sp1-5);
+  }
+}
+
+.secondary-nav__menu-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: var(--sp2);
+  text-decoration: none;
+  color: inherit;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    content: "";
+    transition:
+      opacity 0.2s,
+      transform 0.2s;
+    transform: translateY(5px);
+    opacity: 0;
+    /* Intentionally not using CSS logical properties. */
+    border-top: solid 2px currentColor;
+  }
+
+  &:hover {
+    &::after {
+      transform: translateY(0);
+      opacity: 0.8;
+    }
+  }
+}
+
+body:not(.is-always-mobile-nav) {
+  @media (--nav) {
+    & .secondary-nav {
+      position: relative;
+      display: flex;
+      margin-inline-start: var(--sp);
+      padding-inline-start: var(--sp2);
+
+      &::before {
+        position: absolute;
+        inset-block-start: 50%;
+        inset-inline-start: 0;
+        width: 2px;
+        height: var(--sp2);
+        content: "";
+        transform: translateY(-50%);
+        background-color: var(--color--gray-90);
+      }
+    }
+
+    & .secondary-nav__menu-item:not(:last-child) {
+      margin-inline-end: var(--sp2);
+    }
+
+    & .secondary-nav__menu-link {
+      &:focus {
+        position: relative;
+        outline: 0;
+
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: calc(100% + var(--sp));
+          height: var(--sp3);
+          content: "";
+          transform: translate(-50%, -50%);
+          border: solid 2px var(--color--primary-50);
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvbmF2aWdhdGlvbi9uYXYtc2Vjb25kYXJ5LnBjc3MuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6Im5hdi1zZWNvbmRhcnkucGNzcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBmaWxlXG4gKiBTZWNvbmRhcnkgbmF2aWdhdGlvbiBzdHlsaW5nLlxuICovXG5cbkBpbXBvcnQgXCIuLi8uLi9iYXNlL21lZGlhLXF1ZXJpZXMucGNzcy5jc3NcIjtcblxuLnNlY29uZGFyeS1uYXYge1xuICBsZXR0ZXItc3BhY2luZzogMC4wMmVtO1xuICBmb250LXNpemU6IHZhcigtLWZvbnQtc2l6ZS1zKTtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbn1cblxuLnNlY29uZGFyeS1uYXZfX21lbnUge1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBtYXJnaW4tYmxvY2s6IDA7XG4gIG1hcmdpbi1pbmxpbmUtc3RhcnQ6IDA7XG4gIG1hcmdpbi1pbmxpbmUtZW5kOiAwO1xuICBwYWRkaW5nLWJsb2NrOiAwO1xuICBwYWRkaW5nLWlubGluZS1zdGFydDogMDtcbiAgcGFkZGluZy1pbmxpbmUtZW5kOiAwO1xuICBsaXN0LXN0eWxlOiBub25lO1xufVxuXG4uc2Vjb25kYXJ5LW5hdl9fbWVudS1pdGVtIHtcbiAgLyogUGFyZW50IGVsZW1lbnQgaXMgc2V0IHRvIGZsZXgtYmFzaXM6IDAuIFdlXG4gICAqIGRvbid0IHdhbnQgdGV4dCB0byB3cmFwIHVubGVzcyBpdCBnb2VzIG92ZXIgYVxuICAgKiBjZXJ0YWluIGFyYml0cmFyeSB3aWR0aC5cbiAgICovXG5cbiAgLyogQHRvZG8gc2hvdWxkIHRoaXMgYmUgc2NvcGVkIHRvIGRlc2t0b3AgbmF2PyAqL1xuICB3aWR0aDogbWF4LWNvbnRlbnQ7XG4gIG1heC13aWR0aDogMjAwcHg7XG5cbiAgJjpub3QoOmxhc3QtY2hpbGQpIHtcbiAgICBtYXJnaW4taW5saW5lLWVuZDogdmFyKC0tc3AxLTUpO1xuICB9XG59XG5cbi5zZWNvbmRhcnktbmF2X19tZW51LWxpbmsge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBoZWlnaHQ6IHZhcigtLXNwMik7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgY29sb3I6IGluaGVyaXQ7XG5cbiAgJjo6YWZ0ZXIge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBib3R0b206IDA7XG4gICAgbGVmdDogMDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDA7XG4gICAgY29udGVudDogXCJcIjtcbiAgICB0cmFuc2l0aW9uOlxuICAgICAgb3BhY2l0eSAwLjJzLFxuICAgICAgdHJhbnNmb3JtIDAuMnM7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDVweCk7XG4gICAgb3BhY2l0eTogMDtcbiAgICAvKiBJbnRlbnRpb25hbGx5IG5vdCB1c2luZyBDU1MgbG9naWNhbCBwcm9wZXJ0aWVzLiAqL1xuICAgIGJvcmRlci10b3A6IHNvbGlkIDJweCBjdXJyZW50Q29sb3I7XG4gIH1cblxuICAmOmhvdmVyIHtcbiAgICAmOjphZnRlciB7XG4gICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMCk7XG4gICAgICBvcGFjaXR5OiAwLjg7XG4gICAgfVxuICB9XG59XG5cbmJvZHk6bm90KC5pcy1hbHdheXMtbW9iaWxlLW5hdikge1xuICBAbWVkaWEgKC0tbmF2KSB7XG4gICAgJiAuc2Vjb25kYXJ5LW5hdiB7XG4gICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgbWFyZ2luLWlubGluZS1zdGFydDogdmFyKC0tc3ApO1xuICAgICAgcGFkZGluZy1pbmxpbmUtc3RhcnQ6IHZhcigtLXNwMik7XG5cbiAgICAgICY6OmJlZm9yZSB7XG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgaW5zZXQtYmxvY2stc3RhcnQ6IDUwJTtcbiAgICAgICAgaW5zZXQtaW5saW5lLXN0YXJ0OiAwO1xuICAgICAgICB3aWR0aDogMnB4O1xuICAgICAgICBoZWlnaHQ6IHZhcigtLXNwMik7XG4gICAgICAgIGNvbnRlbnQ6IFwiXCI7XG4gICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgtNTAlKTtcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tY29sb3ItLWdyYXktOTApO1xuICAgICAgfVxuICAgIH1cblxuICAgICYgLnNlY29uZGFyeS1uYXZfX21lbnUtaXRlbTpub3QoOmxhc3QtY2hpbGQpIHtcbiAgICAgIG1hcmdpbi1pbmxpbmUtZW5kOiB2YXIoLS1zcDIpO1xuICAgIH1cblxuICAgICYgLnNlY29uZGFyeS1uYXZfX21lbnUtbGluayB7XG4gICAgICAmOmZvY3VzIHtcbiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgICBvdXRsaW5lOiAwO1xuXG4gICAgICAgICY6OmJlZm9yZSB7XG4gICAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgICAgIHRvcDogNTAlO1xuICAgICAgICAgIGxlZnQ6IDUwJTtcbiAgICAgICAgICB3aWR0aDogY2FsYygxMDAlICsgdmFyKC0tc3ApKTtcbiAgICAgICAgICBoZWlnaHQ6IHZhcigtLXNwMyk7XG4gICAgICAgICAgY29udGVudDogXCJcIjtcbiAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgICAgICAgICBib3JkZXI6IHNvbGlkIDJweCB2YXIoLS1jb2xvci0tcHJpbWFyeS01MCk7XG4gICAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuICB9XG59XG4iXX0= */

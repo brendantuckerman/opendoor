@@ -1,0 +1,81 @@
+/**
+ * @file
+ * Styling for the Filter module.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+/**
+ * Filter information under field.
+ */
+.text-full > .form-item {
+  margin-block-end: 0;
+}
+.form-element--editor-format {
+  vertical-align: top;
+}
+
+.filter-wrapper {
+  margin-block: var(--sp1) var(--sp0-5);
+}
+
+.filter-wrapper .form-item {
+  margin: 0;
+}
+
+.filter-help {
+  float: right; /* LTR */
+  padding-block: var(--sp0-5);
+  font-size: var(--font-size-xxs);
+
+  /**
+   * Chromium and Webkit do not yet support flow relative logical properties,
+   * such as float: inline-end. However, PostCSS Logical does not compile this
+   * value, so we accommodate by not using these.
+   *
+   * @see https://caniuse.com/mdn-css_properties_clear_flow_relative_values
+   * @see https://github.com/csstools/postcss-plugins/issues/632
+   */
+  &:dir(rtl) {
+    float: left;
+  }
+}
+
+/**
+ * Compose tips.
+ *
+ * Wraps filter tips on page '/filter/tips[/name]'.
+ */
+.compose-tips__item {
+  margin-block: var(--sp1-5);
+}
+
+/**
+ * Filter guidelines.
+ */
+.filter-guidelines__item {
+  margin-block-start: var(--sp1);
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-s);
+}
+.filter-guidelines p {
+  margin-block: var(--sp0-25) 0;
+}
+
+/**
+ * Filter tips.
+ *
+ * Long is used on '/filter/tips[/name]', short is used for the filter tips
+ * below a text format input.
+ */
+.filter-tips--long {
+  margin-block-end: var(--sp1-5);
+}
+.filter-tips__item,
+.filter-tips--long p {
+  margin-block: var(--sp0-75);
+}
+.filter-tips__item--short {
+  margin-block: var(--sp0-25) 0;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRoZW1lL2ZpbHRlci50aGVtZS5wY3NzLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJmaWx0ZXIudGhlbWUucGNzcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBmaWxlXG4gKiBTdHlsaW5nIGZvciB0aGUgRmlsdGVyIG1vZHVsZS5cbiAqL1xuXG5AaW1wb3J0IFwiLi4vYmFzZS9tZWRpYS1xdWVyaWVzLnBjc3MuY3NzXCI7XG5cbi8qKlxuICogRmlsdGVyIGluZm9ybWF0aW9uIHVuZGVyIGZpZWxkLlxuICovXG4udGV4dC1mdWxsID4gLmZvcm0taXRlbSB7XG4gIG1hcmdpbi1ibG9jay1lbmQ6IDA7XG59XG4uZm9ybS1lbGVtZW50LS1lZGl0b3ItZm9ybWF0IHtcbiAgdmVydGljYWwtYWxpZ246IHRvcDtcbn1cblxuLmZpbHRlci13cmFwcGVyIHtcbiAgbWFyZ2luLWJsb2NrOiB2YXIoLS1zcDEpIHZhcigtLXNwMC01KTtcbn1cblxuLmZpbHRlci13cmFwcGVyIC5mb3JtLWl0ZW0ge1xuICBtYXJnaW46IDA7XG59XG5cbi5maWx0ZXItaGVscCB7XG4gIGZsb2F0OiByaWdodDsgLyogTFRSICovXG4gIHBhZGRpbmctYmxvY2s6IHZhcigtLXNwMC01KTtcbiAgZm9udC1zaXplOiB2YXIoLS1mb250LXNpemUteHhzKTtcblxuICAvKipcbiAgICogQ2hyb21pdW0gYW5kIFdlYmtpdCBkbyBub3QgeWV0IHN1cHBvcnQgZmxvdyByZWxhdGl2ZSBsb2dpY2FsIHByb3BlcnRpZXMsXG4gICAqIHN1Y2ggYXMgZmxvYXQ6IGlubGluZS1lbmQuIEhvd2V2ZXIsIFBvc3RDU1MgTG9naWNhbCBkb2VzIG5vdCBjb21waWxlIHRoaXNcbiAgICogdmFsdWUsIHNvIHdlIGFjY29tbW9kYXRlIGJ5IG5vdCB1c2luZyB0aGVzZS5cbiAgICpcbiAgICogQHNlZSBodHRwczovL2Nhbml1c2UuY29tL21kbi1jc3NfcHJvcGVydGllc19jbGVhcl9mbG93X3JlbGF0aXZlX3ZhbHVlc1xuICAgKiBAc2VlIGh0dHBzOi8vZ2l0aHViLmNvbS9jc3N0b29scy9wb3N0Y3NzLXBsdWdpbnMvaXNzdWVzLzYzMlxuICAgKi9cbiAgJjpkaXIocnRsKSB7XG4gICAgZmxvYXQ6IGxlZnQ7XG4gIH1cbn1cblxuLyoqXG4gKiBDb21wb3NlIHRpcHMuXG4gKlxuICogV3JhcHMgZmlsdGVyIHRpcHMgb24gcGFnZSAnL2ZpbHRlci90aXBzWy9uYW1lXScuXG4gKi9cbi5jb21wb3NlLXRpcHNfX2l0ZW0ge1xuICBtYXJnaW4tYmxvY2s6IHZhcigtLXNwMS01KTtcbn1cblxuLyoqXG4gKiBGaWx0ZXIgZ3VpZGVsaW5lcy5cbiAqL1xuLmZpbHRlci1ndWlkZWxpbmVzX19pdGVtIHtcbiAgbWFyZ2luLWJsb2NrLXN0YXJ0OiB2YXIoLS1zcDEpO1xuICBmb250LXNpemU6IHZhcigtLWZvbnQtc2l6ZS1zKTtcbiAgbGluZS1oZWlnaHQ6IHZhcigtLWxpbmUtaGVpZ2h0LXMpO1xufVxuLmZpbHRlci1ndWlkZWxpbmVzIHAge1xuICBtYXJnaW4tYmxvY2s6IHZhcigtLXNwMC0yNSkgMDtcbn1cblxuLyoqXG4gKiBGaWx0ZXIgdGlwcy5cbiAqXG4gKiBMb25nIGlzIHVzZWQgb24gJy9maWx0ZXIvdGlwc1svbmFtZV0nLCBzaG9ydCBpcyB1c2VkIGZvciB0aGUgZmlsdGVyIHRpcHNcbiAqIGJlbG93IGEgdGV4dCBmb3JtYXQgaW5wdXQuXG4gKi9cbi5maWx0ZXItdGlwcy0tbG9uZyB7XG4gIG1hcmdpbi1ibG9jay1lbmQ6IHZhcigtLXNwMS01KTtcbn1cbi5maWx0ZXItdGlwc19faXRlbSxcbi5maWx0ZXItdGlwcy0tbG9uZyBwIHtcbiAgbWFyZ2luLWJsb2NrOiB2YXIoLS1zcDAtNzUpO1xufVxuLmZpbHRlci10aXBzX19pdGVtLS1zaG9ydCB7XG4gIG1hcmdpbi1ibG9jazogdmFyKC0tc3AwLTI1KSAwO1xufVxuIl19 */

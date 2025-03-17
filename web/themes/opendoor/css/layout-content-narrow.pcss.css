@@ -1,0 +1,106 @@
+/**
+ * @file
+ * Grid system definition for the content narrow layout.
+ */
+
+@import "../base/media-queries.pcss.css";
+
+.layout--content-narrow,
+.layout--pass--content-narrow > * {
+  grid-column: 1 / 7;
+  width: 100%;
+
+  @media (--grid-md) {
+    grid-column: 2 / 14;
+  }
+
+  @media (--lg) {
+    grid-column: 3 / 11;
+  }
+}
+
+/*
+  If .layout--content-narrow is nested within any of the following, allocate the appropriate
+  amount of columns within its parent .grid-full.
+    - .layout--content-narrow class.
+    - Element that's inheriting the layout--content-narrow styles from its parent region.
+    - .layout--content-medium class.
+    - Element that's inheriting the layout--content-medium styles from its parent region.
+*/
+.layout--content-narrow,
+.layout--pass--content-narrow > *,
+.layout--content-medium,
+.layout--pass--content-medium > * {
+  & .layout--content-narrow,
+  & .layout--pass--content-narrow > * {
+    @media (--grid-md) {
+      grid-column: 1 / 13;
+    }
+
+    @media (--lg) {
+      grid-column: 1 / 9;
+    }
+  }
+}
+
+/*
+  Special grid-breaking treatment for text-content elements that
+  reside in a content-narrow layout.
+*/
+.layout--content-narrow,
+.layout--pass--content-narrow > * {
+  &.text-content,
+  & .text-content {
+    & blockquote {
+      &::before {
+        @media (--grid-md) {
+          inset-inline-start: calc(-1 * (var(--grid-col-width) + var(--grid-gap)));
+        }
+      }
+
+      &::after {
+        @media (--grid-md) {
+          inset-inline-start: calc(-1 * (var(--grid-col-width) + var(--grid-gap)));
+          width: var(--sp);
+          height: calc(100% - 45px);
+          margin-inline-start: 2px;
+        }
+      }
+
+      @media (--grid-md) {
+        width: calc(10 * var(--grid-col-width) + 9 * var(--grid-gap));
+        margin-block: var(--sp3);
+        padding-inline-start: 0;
+      }
+    }
+
+    & pre {
+      @media (--grid-md) {
+        margin-block: var(--sp3);
+      }
+
+      @media (--lg) {
+        width: calc(12 * var(--grid-col-width) + 11 * var(--grid-gap));
+        margin-inline-start: calc(-1 * (var(--grid-col-width) + var(--grid-gap)));
+      }
+    }
+  }
+}
+
+/**
+ * <pre> and <blockquote> elements should not break containers and overflow
+ * into sidebar region when present.
+ */
+.sidebar-grid {
+  & .layout--content-narrow,
+  & .layout--pass--content-narrow > * {
+    &.text-content,
+    & .text-content {
+      & blockquote,
+      & pre {
+        width: auto;
+      }
+    }
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxheW91dC9sYXlvdXQtY29udGVudC1uYXJyb3cucGNzcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEiLCJmaWxlIjoibGF5b3V0LWNvbnRlbnQtbmFycm93LnBjc3MuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAZmlsZVxuICogR3JpZCBzeXN0ZW0gZGVmaW5pdGlvbiBmb3IgdGhlIGNvbnRlbnQgbmFycm93IGxheW91dC5cbiAqL1xuXG5AaW1wb3J0IFwiLi4vYmFzZS9tZWRpYS1xdWVyaWVzLnBjc3MuY3NzXCI7XG5cbi5sYXlvdXQtLWNvbnRlbnQtbmFycm93LFxuLmxheW91dC0tcGFzcy0tY29udGVudC1uYXJyb3cgPiAqIHtcbiAgZ3JpZC1jb2x1bW46IDEgLyA3O1xuICB3aWR0aDogMTAwJTtcblxuICBAbWVkaWEgKC0tZ3JpZC1tZCkge1xuICAgIGdyaWQtY29sdW1uOiAyIC8gMTQ7XG4gIH1cblxuICBAbWVkaWEgKC0tbGcpIHtcbiAgICBncmlkLWNvbHVtbjogMyAvIDExO1xuICB9XG59XG5cbi8qXG4gIElmIC5sYXlvdXQtLWNvbnRlbnQtbmFycm93IGlzIG5lc3RlZCB3aXRoaW4gYW55IG9mIHRoZSBmb2xsb3dpbmcsIGFsbG9jYXRlIHRoZSBhcHByb3ByaWF0ZVxuICBhbW91bnQgb2YgY29sdW1ucyB3aXRoaW4gaXRzIHBhcmVudCAuZ3JpZC1mdWxsLlxuICAgIC0gLmxheW91dC0tY29udGVudC1uYXJyb3cgY2xhc3MuXG4gICAgLSBFbGVtZW50IHRoYXQncyBpbmhlcml0aW5nIHRoZSBsYXlvdXQtLWNvbnRlbnQtbmFycm93IHN0eWxlcyBmcm9tIGl0cyBwYXJlbnQgcmVnaW9uLlxuICAgIC0gLmxheW91dC0tY29udGVudC1tZWRpdW0gY2xhc3MuXG4gICAgLSBFbGVtZW50IHRoYXQncyBpbmhlcml0aW5nIHRoZSBsYXlvdXQtLWNvbnRlbnQtbWVkaXVtIHN0eWxlcyBmcm9tIGl0cyBwYXJlbnQgcmVnaW9uLlxuKi9cbi5sYXlvdXQtLWNvbnRlbnQtbmFycm93LFxuLmxheW91dC0tcGFzcy0tY29udGVudC1uYXJyb3cgPiAqLFxuLmxheW91dC0tY29udGVudC1tZWRpdW0sXG4ubGF5b3V0LS1wYXNzLS1jb250ZW50LW1lZGl1bSA+ICoge1xuICAmIC5sYXlvdXQtLWNvbnRlbnQtbmFycm93LFxuICAmIC5sYXlvdXQtLXBhc3MtLWNvbnRlbnQtbmFycm93ID4gKiB7XG4gICAgQG1lZGlhICgtLWdyaWQtbWQpIHtcbiAgICAgIGdyaWQtY29sdW1uOiAxIC8gMTM7XG4gICAgfVxuXG4gICAgQG1lZGlhICgtLWxnKSB7XG4gICAgICBncmlkLWNvbHVtbjogMSAvIDk7XG4gICAgfVxuICB9XG59XG5cbi8qXG4gIFNwZWNpYWwgZ3JpZC1icmVha2luZyB0cmVhdG1lbnQgZm9yIHRleHQtY29udGVudCBlbGVtZW50cyB0aGF0XG4gIHJlc2lkZSBpbiBhIGNvbnRlbnQtbmFycm93IGxheW91dC5cbiovXG4ubGF5b3V0LS1jb250ZW50LW5hcnJvdyxcbi5sYXlvdXQtLXBhc3MtLWNvbnRlbnQtbmFycm93ID4gKiB7XG4gICYudGV4dC1jb250ZW50LFxuICAmIC50ZXh0LWNvbnRlbnQge1xuICAgICYgYmxvY2txdW90ZSB7XG4gICAgICAmOjpiZWZvcmUge1xuICAgICAgICBAbWVkaWEgKC0tZ3JpZC1tZCkge1xuICAgICAgICAgIGluc2V0LWlubGluZS1zdGFydDogY2FsYygtMSAqICh2YXIoLS1ncmlkLWNvbC13aWR0aCkgKyB2YXIoLS1ncmlkLWdhcCkpKTtcbiAgICAgICAgfVxuICAgICAgfVxuXG4gICAgICAmOjphZnRlciB7XG4gICAgICAgIEBtZWRpYSAoLS1ncmlkLW1kKSB7XG4gICAgICAgICAgaW5zZXQtaW5saW5lLXN0YXJ0OiBjYWxjKC0xICogKHZhcigtLWdyaWQtY29sLXdpZHRoKSArIHZhcigtLWdyaWQtZ2FwKSkpO1xuICAgICAgICAgIHdpZHRoOiB2YXIoLS1zcCk7XG4gICAgICAgICAgaGVpZ2h0OiBjYWxjKDEwMCUgLSA0NXB4KTtcbiAgICAgICAgICBtYXJnaW4taW5saW5lLXN0YXJ0OiAycHg7XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgQG1lZGlhICgtLWdyaWQtbWQpIHtcbiAgICAgICAgd2lkdGg6IGNhbGMoMTAgKiB2YXIoLS1ncmlkLWNvbC13aWR0aCkgKyA5ICogdmFyKC0tZ3JpZC1nYXApKTtcbiAgICAgICAgbWFyZ2luLWJsb2NrOiB2YXIoLS1zcDMpO1xuICAgICAgICBwYWRkaW5nLWlubGluZS1zdGFydDogMDtcbiAgICAgIH1cbiAgICB9XG5cbiAgICAmIHByZSB7XG4gICAgICBAbWVkaWEgKC0tZ3JpZC1tZCkge1xuICAgICAgICBtYXJnaW4tYmxvY2s6IHZhcigtLXNwMyk7XG4gICAgICB9XG5cbiAgICAgIEBtZWRpYSAoLS1sZykge1xuICAgICAgICB3aWR0aDogY2FsYygxMiAqIHZhcigtLWdyaWQtY29sLXdpZHRoKSArIDExICogdmFyKC0tZ3JpZC1nYXApKTtcbiAgICAgICAgbWFyZ2luLWlubGluZS1zdGFydDogY2FsYygtMSAqICh2YXIoLS1ncmlkLWNvbC13aWR0aCkgKyB2YXIoLS1ncmlkLWdhcCkpKTtcbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cblxuLyoqXG4gKiA8cHJlPiBhbmQgPGJsb2NrcXVvdGU+IGVsZW1lbnRzIHNob3VsZCBub3QgYnJlYWsgY29udGFpbmVycyBhbmQgb3ZlcmZsb3dcbiAqIGludG8gc2lkZWJhciByZWdpb24gd2hlbiBwcmVzZW50LlxuICovXG4uc2lkZWJhci1ncmlkIHtcbiAgJiAubGF5b3V0LS1jb250ZW50LW5hcnJvdyxcbiAgJiAubGF5b3V0LS1wYXNzLS1jb250ZW50LW5hcnJvdyA+ICoge1xuICAgICYudGV4dC1jb250ZW50LFxuICAgICYgLnRleHQtY29udGVudCB7XG4gICAgICAmIGJsb2NrcXVvdGUsXG4gICAgICAmIHByZSB7XG4gICAgICAgIHdpZHRoOiBhdXRvO1xuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl19 */

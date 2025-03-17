@@ -1,0 +1,31 @@
+/**
+ * @file
+ * Styles for jQuery UI dialog.
+ */
+
+.ui-dialog {
+  & .ui-dialog-buttonpane {
+    padding-inline-start: 0.2em;
+    padding-inline-end: 0.2em;
+
+    & .ui-dialog-buttonset {
+      display: flex;
+      float: none;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    & button {
+      margin: 0;
+    }
+  }
+}
+
+.ui-widget-overlay {
+  z-index: 1259;
+}
+
+.ui-dialog {
+  z-index: 1260;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvdWktZGlhbG9nLnBjc3MuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6InVpLWRpYWxvZy5wY3NzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGZpbGVcbiAqIFN0eWxlcyBmb3IgalF1ZXJ5IFVJIGRpYWxvZy5cbiAqL1xuXG4udWktZGlhbG9nIHtcbiAgJiAudWktZGlhbG9nLWJ1dHRvbnBhbmUge1xuICAgIHBhZGRpbmctaW5saW5lLXN0YXJ0OiAwLjJlbTtcbiAgICBwYWRkaW5nLWlubGluZS1lbmQ6IDAuMmVtO1xuXG4gICAgJiAudWktZGlhbG9nLWJ1dHRvbnNldCB7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgZmxvYXQ6IG5vbmU7XG4gICAgICBmbGV4LXdyYXA6IHdyYXA7XG4gICAgICBnYXA6IDVweDtcbiAgICB9XG5cbiAgICAmIGJ1dHRvbiB7XG4gICAgICBtYXJnaW46IDA7XG4gICAgfVxuICB9XG59XG5cbi51aS13aWRnZXQtb3ZlcmxheSB7XG4gIHotaW5kZXg6IDEyNTk7XG59XG5cbi51aS1kaWFsb2cge1xuICB6LWluZGV4OiAxMjYwO1xufVxuIl19 */
