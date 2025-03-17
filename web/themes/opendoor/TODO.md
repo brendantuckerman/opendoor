@@ -7,9 +7,9 @@
 
 There are 4 aims of OpenDoor Theme, in order of importance:
 
-1. Not just accessible, but inclusive
+1. Accessibile
 
-Aiming for AAA at all levels, and with key features that are designed to accommodate the needs of all users.
+This means it should be a minimalist design. Colours need to be AAA only. 
 
 Each element should be built with accessibility in mind--nothing should be added without that consideration. 
 
@@ -66,7 +66,6 @@ TODO:
    * Colour contrast all colours should be AAA OR replaced/ adjusted  ☐
    * If a custom colour is picked, we need some way of adjusting it for all colour blindess mode
 - Add detail to the TODO list here ☐
-- Page: design system test
 - Readme.txt ☐
 - Replace Oliver with opendooor ☐
 - Create pairs of accessible colours ☐
@@ -76,7 +75,6 @@ TODO:
 - Button focus should ve the same colour as button, just with a border / outline included
 - Buttons: default, hover, focus, active, disabled
 - 404 
-- A11y builder has complex calculations for changing the colours.
 
 - Accessibility
 
@@ -136,8 +134,6 @@ TODO:
 - improved line height
 - dislexic firnedly fonts
 - Mode avaliable for ADHD/ Dislexia
-- Open dyslexic font: https://opendyslexic.org/
-- Would need to shift from 'standard font' to Open dyslexic
 
 
 3. Vision impairmnet
